@@ -2,9 +2,9 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>零基礎也能上場 ─ 拚進白河商工排球隊作戰計畫｜2027 會考</title>
-<meta name="description" content="給國三生的一頁式作戰計畫：怎麼考進國立白河商工、怎麼從零開始加入排球校隊，含會考積分算法、9 個月讀書與練球進度表。">
+<meta name="description" content="給國三生的一頁式作戰計畫：怎麼考進國立白河商工、怎麼從零開始加入排球校隊，含會考積分算法、住宿與學費補助、交通位置、9 個月讀書與練球進度表。">
 <meta name="theme-color" content="#0b1020">
 <meta property="og:title" content="零基礎也能上場 ─ 拚進白河商工排球隊作戰計畫">
 <meta property="og:description" content="現在開始，還來得及。9 個月讀書 × 練球雙軌進度表。">
@@ -12,52 +12,36 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23ffd23f'/%3E%3Cpath d='M4 14c8-1 16 2 22 8M9 4c4 6 5 14 2 22M28 12c-6 3-14 3-21-2' stroke='%230b1020' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   :root{
-    --bg:#0b1020;
-    --bg2:#0f1628;
-    --surface:#151d33;
-    --surface2:#1b2542;
-    --line:#27324f;
-    --ink:#eef2ff;
-    --mute:#9aabcc;
-    --accent:#ff7a1a;
-    --accent2:#ffd23f;
-    --court:#3b82f6;
-    --green:#34d399;
-    --pink:#f472b6;
-    --radius:18px;
-    --max:1080px;
+    --bg:#0b1020; --bg2:#0f1628; --surface:#151d33; --surface2:#1b2542;
+    --line:#27324f; --ink:#eef2ff; --mute:#9aabcc;
+    --accent:#ff7a1a; --accent2:#ffd23f; --court:#3b82f6;
+    --green:#34d399; --pink:#f472b6;
+    --radius:18px; --max:1080px;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     margin:0;background:var(--bg);color:var(--ink);
     font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",system-ui,-apple-system,"Segoe UI",sans-serif;
     line-height:1.85;letter-spacing:.01em;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   img,svg{max-width:100%;height:auto;display:block}
+  figure{margin:0}
   a{color:var(--accent2)}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-  section{padding:76px 0;position:relative}
+  section{padding:76px 0;position:relative;scroll-margin-top:64px}
   section + section{border-top:1px solid var(--line)}
 
   /* ---------- nav ---------- */
-  nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(11,16,32,.86);backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--line);
-  }
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav-in{display:flex;align-items:center;gap:16px;max-width:var(--max);margin:0 auto;padding:10px 22px}
   .brand{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.04em;white-space:nowrap}
   .brand svg{width:26px;height:26px;flex:none}
-  .nav-links{display:flex;gap:4px;overflow-x:auto;margin-left:auto;scrollbar-width:none}
+  .nav-links{display:flex;gap:4px;overflow-x:auto;margin-left:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .nav-links::-webkit-scrollbar{display:none}
-  .nav-links a{
-    color:var(--mute);text-decoration:none;font-size:14px;font-weight:700;
-    padding:7px 11px;border-radius:999px;white-space:nowrap;transition:.15s
-  }
-  .nav-links a:hover{color:var(--ink);background:var(--surface2)}
+  .nav-links a{color:var(--mute);text-decoration:none;font-size:14px;font-weight:700;padding:9px 12px;border-radius:999px;white-space:nowrap;transition:.15s}
+  .nav-links a:hover,.nav-links a:active{color:var(--ink);background:var(--surface2)}
 
   /* ---------- hero ---------- */
   .hero{
@@ -69,50 +53,26 @@
     overflow:hidden;
   }
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
-  .tagline{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,122,26,.13);border:1px solid rgba(255,122,26,.4);
-    color:var(--accent2);font-weight:800;font-size:13.5px;letter-spacing:.08em;
-    padding:6px 14px;border-radius:999px;margin-bottom:20px
-  }
-  h1{
-    font-size:clamp(2.15rem,5.6vw,3.65rem);line-height:1.18;margin:0 0 18px;
-    font-weight:900;letter-spacing:-.01em
-  }
-  .hl{
-    background:linear-gradient(180deg,transparent 62%,rgba(255,122,26,.45) 62%);
-    padding:0 .1em
-  }
+  .tagline{display:inline-flex;align-items:center;gap:8px;background:rgba(255,122,26,.13);border:1px solid rgba(255,122,26,.4);color:var(--accent2);font-weight:800;font-size:13.5px;letter-spacing:.08em;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  h1{font-size:clamp(2.1rem,5.6vw,3.65rem);line-height:1.18;margin:0 0 18px;font-weight:900;letter-spacing:-.01em}
+  .hl{background:linear-gradient(180deg,transparent 62%,rgba(255,122,26,.45) 62%);padding:0 .1em}
   .lead{font-size:1.09rem;color:#c8d5f0;margin:0 0 26px;max-width:36em}
   .lead strong{color:var(--accent2)}
-
-  .count{
-    display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px
-  }
-  .cbox{
-    background:var(--surface);border:1px solid var(--line);border-radius:14px;
-    padding:11px 16px;min-width:82px;text-align:center
-  }
+  .count{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+  .cbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:11px 16px;min-width:82px;text-align:center;flex:1 1 auto}
   .cbox b{display:block;font-size:1.85rem;font-weight:900;color:var(--accent2);line-height:1.15;font-variant-numeric:tabular-nums}
   .cbox span{font-size:12px;color:var(--mute);letter-spacing:.12em}
   .cnote{font-size:14px;color:var(--mute);margin:0 0 26px}
-
   .btns{display:flex;gap:12px;flex-wrap:wrap}
-  .btn{
-    display:inline-block;text-decoration:none;font-weight:900;font-size:15px;
-    padding:13px 24px;border-radius:999px;transition:.18s
-  }
+  .btn{display:inline-block;text-decoration:none;font-weight:900;font-size:15px;padding:13px 24px;border-radius:999px;transition:.18s}
   .btn-p{background:linear-gradient(135deg,var(--accent),#ff9d47);color:#22160a;box-shadow:0 8px 26px rgba(255,122,26,.32)}
   .btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,122,26,.42)}
   .btn-s{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
   .btn-s:hover{border-color:var(--accent2);color:var(--accent2)}
 
   /* ---------- headings ---------- */
-  .eyebrow{
-    color:var(--accent);font-weight:900;font-size:13px;letter-spacing:.18em;
-    margin:0 0 10px;text-transform:uppercase
-  }
-  h2{font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.3;margin:0 0 14px;font-weight:900;letter-spacing:-.005em}
+  .eyebrow{color:var(--accent);font-weight:900;font-size:13px;letter-spacing:.18em;margin:0 0 10px;text-transform:uppercase}
+  h2{font-size:clamp(1.55rem,3.6vw,2.3rem);line-height:1.3;margin:0 0 14px;font-weight:900;letter-spacing:-.005em}
   h3{font-size:1.15rem;margin:0 0 8px;font-weight:800}
   .sub{color:var(--mute);font-size:1.02rem;margin:0 0 34px;max-width:44em}
 
@@ -120,59 +80,48 @@
   .grid{display:grid;gap:18px}
   .g2{grid-template-columns:repeat(2,1fr)}
   .g3{grid-template-columns:repeat(3,1fr)}
-  .card{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:24px;transition:.2s
-  }
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.2s}
   .card:hover{transform:translateY(-3px);border-color:rgba(255,210,63,.4)}
   .card p{margin:0;color:#c3d0ea;font-size:.97rem}
   .card p + p{margin-top:10px}
-  .num{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:36px;height:36px;border-radius:11px;font-weight:900;font-size:1rem;
-    background:rgba(255,122,26,.16);color:var(--accent2);margin-bottom:14px
-  }
+  .num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;font-weight:900;font-size:1rem;background:rgba(255,122,26,.16);color:var(--accent2);margin-bottom:14px}
 
-  .fact{
-    border-left:4px solid var(--accent);background:var(--surface2);
-    border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0
-  }
+  .fact{border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 14px 14px 0;padding:18px 22px;margin:22px 0}
   .fact strong{color:var(--accent2)}
   .good{border-left-color:var(--green)}
   .good strong{color:var(--green)}
 
   /* ---------- table ---------- */
-  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);-webkit-overflow-scrolling:touch}
   table{border-collapse:collapse;width:100%;min-width:560px;font-size:.94rem}
   th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
   thead th{background:var(--surface2);font-weight:900;color:var(--accent2);font-size:.88rem;letter-spacing:.05em;white-space:nowrap}
   tbody tr:last-child td{border-bottom:none}
   tbody tr:hover{background:rgba(255,255,255,.025)}
   td b{color:var(--ink)}
-  .tag{
-    display:inline-block;font-size:12px;font-weight:900;padding:3px 10px;border-radius:999px;white-space:nowrap
-  }
+  .swipe{display:none;font-size:12.5px;color:var(--mute);margin:8px 0 0;text-align:center;letter-spacing:.08em}
+  .tag{display:inline-block;font-size:12px;font-weight:900;padding:3px 10px;border-radius:999px;white-space:nowrap}
   .t-book{background:rgba(59,130,246,.18);color:#93c5fd}
   .t-ball{background:rgba(255,122,26,.18);color:#ffb374}
   .t-life{background:rgba(52,211,153,.16);color:#6ee7b7}
 
+  /* ---------- photos ---------- */
+  .photos{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin:26px 0}
+  .ph{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+  .ph img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .ph.wide img{aspect-ratio:auto}
+  .ph figcaption{padding:11px 15px;font-size:.82rem;color:var(--mute);line-height:1.6}
+  .ph figcaption b{color:#c3d0ea;font-size:.9rem;display:block;margin-bottom:2px}
+  .ph figcaption a{color:#8fa4c8;text-decoration:none;border-bottom:1px dotted #55658a}
+
   /* ---------- timeline ---------- */
   .tl{position:relative;padding-left:34px;margin-top:12px}
-  .tl::before{
-    content:"";position:absolute;left:11px;top:8px;bottom:8px;width:3px;
-    background:linear-gradient(180deg,var(--accent),var(--accent2),var(--court));border-radius:3px
-  }
+  .tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2),var(--court));border-radius:3px}
   .tl-item{position:relative;margin-bottom:24px}
-  .tl-item::before{
-    content:"";position:absolute;left:-29px;top:9px;width:15px;height:15px;border-radius:50%;
-    background:var(--accent2);border:3px solid var(--bg);box-shadow:0 0 0 3px rgba(255,210,63,.22)
-  }
+  .tl-item::before{content:"";position:absolute;left:-29px;top:9px;width:15px;height:15px;border-radius:50%;background:var(--accent2);border:3px solid var(--bg);box-shadow:0 0 0 3px rgba(255,210,63,.22)}
   .tl-when{font-weight:900;color:var(--accent2);font-size:1.02rem;margin-bottom:2px}
   .tl-goal{font-size:.86rem;color:var(--mute);letter-spacing:.06em;margin-bottom:12px}
-  .tl-body{
-    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
-    display:grid;grid-template-columns:1fr 1fr;gap:18px
-  }
+  .tl-body{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .tl-col h4{margin:0 0 8px;font-size:.9rem;letter-spacing:.06em}
   .tl-col ul{margin:0;padding-left:18px;color:#c3d0ea;font-size:.94rem}
   .tl-col li{margin-bottom:5px}
@@ -180,28 +129,14 @@
 
   /* ---------- checklist ---------- */
   .check{list-style:none;padding:0;margin:0}
-  .check li{
-    display:flex;gap:12px;align-items:flex-start;
-    padding:13px 0;border-bottom:1px dashed var(--line);color:#c3d0ea;font-size:.98rem
-  }
+  .check li{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px dashed var(--line);color:#c3d0ea;font-size:.98rem}
   .check li:last-child{border-bottom:none}
-  .check .ck{
-    flex:none;width:24px;height:24px;border-radius:7px;background:rgba(52,211,153,.15);
-    color:var(--green);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px
-  }
+  .check .ck{flex:none;width:24px;height:24px;border-radius:7px;background:rgba(52,211,153,.15);color:var(--green);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
 
   /* ---------- pep ---------- */
-  .pep{
-    background:
-      radial-gradient(700px 340px at 50% 0%, rgba(255,122,26,.20), transparent 65%),
-      linear-gradient(180deg,#101830,#0b1020);
-    text-align:center
-  }
+  .pep{background:radial-gradient(700px 340px at 50% 0%, rgba(255,122,26,.20), transparent 65%),linear-gradient(180deg,#101830,#0b1020);text-align:center}
   .pep h2{font-size:clamp(1.7rem,4.4vw,2.7rem)}
-  .quote{
-    font-size:clamp(1.2rem,2.9vw,1.65rem);font-weight:900;line-height:1.6;
-    max-width:22em;margin:0 auto 22px;color:var(--ink)
-  }
+  .quote{font-size:clamp(1.15rem,2.9vw,1.65rem);font-weight:900;line-height:1.6;max-width:22em;margin:0 auto 22px;color:var(--ink)}
   .quote em{color:var(--accent2);font-style:normal}
   .pep .sub{margin-left:auto;margin-right:auto;text-align:center}
 
@@ -209,20 +144,21 @@
   .src{font-size:.88rem;color:var(--mute)}
   .src ul{padding-left:20px;margin:10px 0}
   .src li{margin-bottom:7px}
-  .warn{
-    background:rgba(255,122,26,.08);border:1px solid rgba(255,122,26,.3);
-    border-radius:14px;padding:18px 22px;font-size:.93rem;color:#d9c9b4
-  }
-  footer{
-    border-top:1px solid var(--line);padding:34px 0;text-align:center;
-    color:var(--mute);font-size:.85rem
-  }
-
+  .warn{background:rgba(255,122,26,.08);border:1px solid rgba(255,122,26,.3);border-radius:14px;padding:18px 22px;font-size:.93rem;color:#d9c9b4}
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--mute);font-size:.85rem}
   .figcap{text-align:center;color:var(--mute);font-size:.85rem;margin-top:10px}
-  .art{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px;margin:26px 0
+  .art{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:26px 0}
+
+  /* ---------- back to top ---------- */
+  #top{
+    position:fixed;right:16px;bottom:16px;z-index:60;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+    background:rgba(21,29,51,.94);color:var(--accent2);font-size:19px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    opacity:0;pointer-events:none;transition:opacity .25s;
+    backdrop-filter:blur(8px);padding-bottom:2px;
   }
+  #top.show{opacity:1;pointer-events:auto}
 
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
@@ -231,13 +167,35 @@
   /* ---------- responsive ---------- */
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:30px}
-    .hero-art{order:-1;max-width:340px;margin:0 auto}
-    .g3{grid-template-columns:1fr}
-    .g2{grid-template-columns:1fr}
+    .hero-art{order:-1;max-width:320px;margin:0 auto}
+    .g3,.g2,.photos{grid-template-columns:1fr}
     .tl-body{grid-template-columns:1fr}
-    section{padding:58px 0}
-    .nav-links a{padding:6px 9px;font-size:13px}
+    section{padding:56px 0}
     .brand span{display:none}
+    .swipe{display:block}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .nav-in{padding:8px 14px;gap:10px}
+    section{padding:46px 0}
+    .hero{padding:40px 0 58px}
+    .card{padding:20px}
+    .art{padding:14px}
+    .fact,.warn{padding:16px 18px}
+    .lead{font-size:1.02rem}
+    .sub{font-size:.97rem;margin-bottom:26px}
+    .count{gap:7px}
+    .cbox{min-width:0;padding:9px 6px;flex:1 1 0}
+    .cbox b{font-size:1.4rem}
+    .cbox span{font-size:11px;letter-spacing:.06em}
+    .btn{width:100%;text-align:center;padding:14px 20px}
+    .tl{padding-left:26px}
+    .tl::before{left:7px}
+    .tl-item::before{left:-25px;width:13px;height:13px}
+    .tl-body{padding:15px 16px}
+    th,td{padding:11px 12px}
+    .ph img{aspect-ratio:16/10}
+    #top{right:12px;bottom:12px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -246,7 +204,7 @@
   }
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-  .ball-spin{animation:spin 26s linear infinite;transform-origin:center}
+  .ball-spin{animation:spin 30s linear infinite;transform-origin:center}
   .ball-bob{animation:bob 4.6s ease-in-out infinite}
 </style>
 </head>
@@ -255,15 +213,24 @@
 <nav>
   <div class="nav-in">
     <div class="brand">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#ffd23f"/><g stroke="#0b1020" stroke-width="4" fill="none" stroke-linecap="round"><path d="M6 27c17-3 33 4 45 17"/><path d="M20 6c8 13 10 30 4 47"/><path d="M58 24c-13 7-30 6-44-5"/></g></svg>
+      <svg viewBox="-110 -110 220 220" aria-hidden="true">
+        <circle r="100" fill="#ffd23f"/>
+        <g stroke="#0b1020" stroke-width="13" fill="none" stroke-linecap="round">
+          <path d="M-98 -20 C -40 -46, 40 -46, 98 -20"/>
+          <g transform="rotate(120)"><path d="M-98 -20 C -40 -46, 40 -46, 98 -20"/></g>
+          <g transform="rotate(240)"><path d="M-98 -20 C -40 -46, 40 -46, 98 -20"/></g>
+        </g>
+      </svg>
       <span>白商排球作戰計畫</span>
     </div>
     <div class="nav-links">
       <a href="#truth">三個真相</a>
-      <a href="#school">認識白商</a>
+      <a href="#where">在哪裡</a>
+      <a href="#dorm">住宿</a>
+      <a href="#money">學費補助</a>
       <a href="#score">會考幾分</a>
-      <a href="#volley">練球項目</a>
-      <a href="#plan">9個月表</a>
+      <a href="#volley">練球</a>
+      <a href="#plan">進度表</a>
       <a href="#todo">現在就做</a>
     </div>
   </div>
@@ -298,22 +265,22 @@
     <div class="hero-art">
       <svg viewBox="0 0 420 420" role="img" aria-label="排球與球場插圖">
         <defs>
-          <radialGradient id="glow" cx="50%" cy="42%" r="55%">
-            <stop offset="0%" stop-color="#ff7a1a" stop-opacity=".55"/>
+          <radialGradient id="glow" cx="50%" cy="40%" r="55%">
+            <stop offset="0%" stop-color="#ff7a1a" stop-opacity=".5"/>
             <stop offset="100%" stop-color="#ff7a1a" stop-opacity="0"/>
           </radialGradient>
-          <linearGradient id="ballg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#fff3c9"/>
-            <stop offset="55%" stop-color="#ffd23f"/>
-            <stop offset="100%" stop-color="#f59e0b"/>
-          </linearGradient>
+          <radialGradient id="ballg" cx="34%" cy="30%" r="78%">
+            <stop offset="0%" stop-color="#fffaf0"/>
+            <stop offset="45%" stop-color="#ffdf6b"/>
+            <stop offset="100%" stop-color="#e8930c"/>
+          </radialGradient>
           <linearGradient id="courtg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#3b82f6" stop-opacity=".45"/>
             <stop offset="100%" stop-color="#3b82f6" stop-opacity=".05"/>
           </linearGradient>
         </defs>
 
-        <circle cx="210" cy="180" r="185" fill="url(#glow)"/>
+        <circle cx="210" cy="175" r="185" fill="url(#glow)"/>
 
         <!-- 透視球場 -->
         <g opacity=".95">
@@ -331,24 +298,32 @@
         </g>
 
         <!-- 動線 -->
-        <g stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" opacity=".65">
-          <path d="M304 74 q-46 22 -70 56" stroke-dasharray="4 12"/>
-          <path d="M330 96 q-46 22 -70 56" stroke-dasharray="4 12" opacity=".5"/>
+        <g stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6">
+          <path d="M318 66 q-50 24 -76 60" stroke-dasharray="3 13"/>
+          <path d="M344 90 q-50 24 -76 60" stroke-dasharray="3 13" opacity=".45"/>
         </g>
 
         <!-- 排球 -->
         <g class="ball-bob">
-          <g class="ball-spin" transform="translate(210,150)">
-            <circle r="76" fill="url(#ballg)"/>
-            <g stroke="#12203c" stroke-width="5.5" fill="none" stroke-linecap="round" opacity=".9">
-              <path d="M-73 -20 C -30 -34 26 -22 62 20"/>
-              <path d="M-60 -46 C -30 -14 -18 34 -28 68"/>
-              <path d="M20 -73 C 34 -34 34 24 8 66"/>
-              <path d="M-70 26 C -34 44 22 48 66 22"/>
-              <path d="M52 -55 C 26 -30 12 6 14 44"/>
+          <g transform="translate(210,148)">
+            <ellipse cx="4" cy="118" rx="62" ry="11" fill="#000" opacity=".28"/>
+            <g class="ball-spin">
+              <circle r="100" fill="url(#ballg)"/>
+              <g stroke="#16233d" stroke-width="6.5" fill="none" stroke-linecap="round" opacity=".95">
+                <path d="M-98 -20 C -40 -47, 40 -47, 98 -20"/>
+                <path d="M-93 -37 C -40 -63, 40 -63, 93 -37"/>
+                <g transform="rotate(120)">
+                  <path d="M-98 -20 C -40 -47, 40 -47, 98 -20"/>
+                  <path d="M-93 -37 C -40 -63, 40 -63, 93 -37"/>
+                </g>
+                <g transform="rotate(240)">
+                  <path d="M-98 -20 C -40 -47, 40 -47, 98 -20"/>
+                  <path d="M-93 -37 C -40 -63, 40 -63, 93 -37"/>
+                </g>
+              </g>
+              <circle r="100" fill="none" stroke="#16233d" stroke-width="5" opacity=".55"/>
+              <ellipse cx="-36" cy="-44" rx="30" ry="19" fill="#fff" opacity=".42" transform="rotate(-30 -36 -44)"/>
             </g>
-            <circle r="76" fill="none" stroke="#12203c" stroke-width="4" stroke-opacity=".35"/>
-            <ellipse cx="-24" cy="-30" rx="26" ry="17" fill="#fff" opacity=".35" transform="rotate(-28)"/>
           </g>
         </g>
       </svg>
@@ -374,7 +349,7 @@
         <div class="num">2</div>
         <h3>排球是「校隊」，不是體育班</h3>
         <p>白商男排出現在<b>高中排球聯賽（HVL）乙級</b>臺南市預賽的參賽名單裡（官方成績表 111、112 學年度都查得到）。乙級隊多半是<b>一般生組成的校隊／球隊</b>，不像甲級那樣需要體育班身分。</p>
-        <p>白商有體育班性質的專項是<b>棒球</b>，排球目前查不到「排球術科招生」。<b>意思是：你不用先變成排球選手才進得去，你是先進學校，再進球隊。</b></p>
+        <p>白商有招生簡章的球隊是<b>棒球</b>，排球目前查不到「排球術科招生」。<b>意思是：你不用先變成排球選手才進得去，你是先進學校，再進球隊。</b></p>
       </div>
 
       <div class="card">
@@ -393,62 +368,203 @@
   </div>
 </section>
 
-<!-- ================= 認識白商 ================= -->
-<section id="school">
+<!-- ================= 位置與交通 ================= -->
+<section id="where">
   <div class="wrap rv">
-    <p class="eyebrow">你要去的地方</p>
-    <h2>國立白河商工，長這樣</h2>
-    <p class="sub">先認識它，你才會真的想去。這是一所在臺南白河、校地六公頃多、走技職路線的老學校，前身可以追到 1927 年。</p>
+    <p class="eyebrow">白河商工在哪裡</p>
+    <h2>臺南最北邊，一個叫白河的地方</h2>
+    <p class="sub">
+      白河區在<b>臺南市的最北端</b>，再往北就是嘉義。這裡以<b>蓮花</b>和<b>關子嶺溫泉</b>出名，
+      夏天整片荷花田，是台南人夏天會特地開車來的地方。學校就在白河市區旁邊。
+    </p>
 
-    <div class="grid g2">
-      <div class="card">
-        <h3>📍 基本資料</h3>
-        <p><b>全名：</b>國立白河高級商工職業學校</p>
-        <p><b>地址：</b>732 臺南市白河區永安里新興路 528 號</p>
-        <p><b>電話：</b>(06) 685-2054</p>
-        <p><b>網站：</b><a href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">www.phvs.tn.edu.tw</a></p>
-        <p><b>校地：</b>約 6.1 公頃（操場、球場空間夠大）</p>
-      </div>
-
-      <div class="card">
-        <h3>🛠️ 有哪些科可以選</h3>
-        <p>日間部大致有：<b>商業經營科、資料處理科、資訊科、電機科、機械科、土木科、水電科、汽車科、汽車修護科、多媒體技術科、綜合職能科</b>。</p>
-        <p>選科小提醒：如果你打算高中三年都要練球，<b>先想清楚「哪一科的作業量和實習時數，你撐得住」</b>。喜歡動手就往機械／電機／汽車，喜歡電腦就往資訊／資處／多媒體。開放參觀日一定要去問在校生。</p>
-      </div>
+    <div class="photos">
+      <figure class="ph">
+        <img src="img/baihe-district.jpg" alt="臺南市白河區景色" width="1280" height="853" loading="lazy">
+        <figcaption><b>臺南市白河區</b>照片：Mk2010，授權 CC BY-SA 3.0，來源 <a href="https://commons.wikimedia.org/wiki/File:Baihe_District,_Tainan_(Taiwan).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+      </figure>
+      <figure class="ph">
+        <img src="img/baihe-lotus-field.jpg" alt="白河的蓮花田晨景" width="1280" height="850" loading="lazy">
+        <figcaption><b>白河晨景 ‧ 蓮花田</b>照片：梁郡芳，授權 CC BY 4.0，來源 <a href="https://commons.wikimedia.org/wiki/File:%E7%99%BD%E6%B2%B3%E6%99%A8%E6%99%AF.tif" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+      </figure>
     </div>
 
     <div class="art">
-      <svg viewBox="0 0 900 300" role="img" aria-label="排球場俯視圖與場上位置">
+      <svg viewBox="0 0 900 460" role="img" aria-label="白河商工相對位置與交通示意圖">
         <defs>
-          <linearGradient id="cg2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#1e3a8a" stop-opacity=".55"/>
-            <stop offset="50%" stop-color="#1d4ed8" stop-opacity=".3"/>
-            <stop offset="100%" stop-color="#1e3a8a" stop-opacity=".55"/>
+          <linearGradient id="mapbg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#16305a" stop-opacity=".5"/>
+            <stop offset="100%" stop-color="#0f1c33" stop-opacity=".5"/>
           </linearGradient>
         </defs>
-        <rect x="60" y="40" width="780" height="220" rx="6" fill="url(#cg2)" stroke="#60a5fa" stroke-width="3"/>
-        <line x1="450" y1="28" x2="450" y2="272" stroke="#ffd23f" stroke-width="5"/>
-        <line x1="320" y1="40" x2="320" y2="260" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="9 7"/>
-        <line x1="580" y1="40" x2="580" y2="260" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="9 7"/>
+        <rect x="0" y="0" width="900" height="460" rx="14" fill="url(#mapbg)"/>
 
-        <g fill="#ffd23f" opacity=".9">
-          <circle cx="150" cy="90" r="16"/><circle cx="150" cy="210" r="16"/>
-          <circle cx="255" cy="150" r="16"/>
-          <circle cx="385" cy="80" r="16"/><circle cx="385" cy="220" r="16"/><circle cx="385" cy="150" r="16"/>
-        </g>
-        <g fill="#0b1020" font-size="15" font-weight="900" text-anchor="middle" font-family="system-ui">
-          <text x="150" y="96">5</text><text x="150" y="216">1</text><text x="255" y="156">6</text>
-          <text x="385" y="86">4</text><text x="385" y="226">2</text><text x="385" y="156">3</text>
+        <!-- 山區 -->
+        <path d="M640 40 L720 150 L560 150 Z" fill="#1f3a2e" opacity=".55"/>
+        <path d="M720 90 L810 200 L630 200 Z" fill="#1f3a2e" opacity=".45"/>
+        <text x="712" y="180" fill="#6ee7b7" font-size="14" font-weight="800" font-family="system-ui" text-anchor="middle" opacity=".8">關子嶺 ‧ 山區</text>
+
+        <!-- 國道 -->
+        <line x1="150" y1="20" x2="150" y2="440" stroke="#64748b" stroke-width="9" opacity=".5"/>
+        <text x="150" y="452" fill="#94a3b8" font-size="13" font-weight="800" font-family="system-ui" text-anchor="middle">國道1號（中山高）</text>
+        <line x1="600" y1="20" x2="600" y2="440" stroke="#64748b" stroke-width="9" opacity=".5"/>
+        <text x="600" y="452" fill="#94a3b8" font-size="13" font-weight="800" font-family="system-ui" text-anchor="middle">國道3號（南二高）</text>
+
+        <!-- 連線 -->
+        <g stroke="#ffd23f" stroke-width="3" stroke-dasharray="8 7" fill="none" opacity=".75">
+          <path d="M215 300 L400 240"/>
+          <path d="M300 90 L400 240" opacity=".6"/>
+          <path d="M262 392 L400 240" opacity=".6"/>
+          <path d="M400 240 L592 240" opacity=".5"/>
         </g>
 
-        <g fill="#9aabcc" font-size="15" font-family="system-ui" font-weight="700">
-          <text x="150" y="292" text-anchor="middle">後排（防守／接發球）</text>
-          <text x="385" y="292" text-anchor="middle">前排（攔網／攻擊）</text>
-          <text x="450" y="20" text-anchor="middle" fill="#ffd23f">球網 2.43 m（高中男子）</text>
-          <text x="700" y="150" text-anchor="middle" fill="#93c5fd">場地 18 m × 9 m　攻擊線 3 m</text>
+        <!-- 地點 -->
+        <g font-family="system-ui" font-weight="900">
+          <!-- 白河商工 -->
+          <circle cx="400" cy="240" r="17" fill="#ff7a1a"/>
+          <circle cx="400" cy="240" r="27" fill="none" stroke="#ff7a1a" stroke-width="2.5" opacity=".55"/>
+          <text x="400" y="247" font-size="17" fill="#2b1405" text-anchor="middle">🏐</text>
+          <text x="400" y="288" font-size="18" fill="#ffd23f" text-anchor="middle">白河商工</text>
+          <text x="400" y="309" font-size="13" fill="#c3d0ea" text-anchor="middle" font-weight="700">白河區新興路 528 號</text>
+
+          <!-- 新營 -->
+          <circle cx="215" cy="300" r="11" fill="#3b82f6"/>
+          <text x="215" y="332" font-size="16" fill="#93c5fd" text-anchor="middle">新營火車站</text>
+          <text x="215" y="352" font-size="12.5" fill="#9aabcc" text-anchor="middle" font-weight="700">黃幹線公車 ‧ 約 25 分鐘</text>
+
+          <!-- 嘉義 -->
+          <circle cx="300" cy="90" r="11" fill="#3b82f6"/>
+          <text x="300" y="72" font-size="16" fill="#93c5fd" text-anchor="middle">嘉義火車站</text>
+          <text x="300" y="52" font-size="12.5" fill="#9aabcc" text-anchor="middle" font-weight="700">嘉義客運往白河／關子嶺</text>
+
+          <!-- 後壁 -->
+          <circle cx="262" cy="392" r="11" fill="#3b82f6"/>
+          <text x="262" y="418" font-size="16" fill="#93c5fd" text-anchor="middle">後壁火車站</text>
+          <text x="262" y="437" font-size="12.5" fill="#9aabcc" text-anchor="middle" font-weight="700">黃10 公車 ‧ 約 20 分鐘</text>
+
+          <!-- 交流道 -->
+          <rect x="566" y="226" width="30" height="28" rx="6" fill="#64748b" opacity=".8"/>
+          <text x="581" y="246" font-size="15" fill="#0b1020" text-anchor="middle">⇱</text>
+          <text x="640" y="246" font-size="14" fill="#cbd5e1" text-anchor="start" font-weight="800">白河交流道</text>
+
+          <text x="820" y="40" font-size="13" fill="#64748b" text-anchor="end" font-weight="700">↑ 北：嘉義　↓ 南：臺南市區</text>
         </g>
       </svg>
-      <p class="figcap">場上六個位置與輪轉。第一次進球隊，多半從「後排接發球、防守」開始，這正是你可以靠苦練最快追上別人的地方。</p>
+      <p class="figcap">相對位置示意圖（非等比例地圖）。實際路線與班次請以學校公告及公車動態為準。</p>
+    </div>
+
+    <h3>怎麼去學校</h3>
+    <p class="sub" style="margin-bottom:14px">以下路線整理自學校官網「住宿與交通方式」頁面。</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>出發地</th><th>怎麼搭</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td><b>新營火車站</b></td><td>轉<b>大台南黃幹線</b>公車往白河</td><td>約 25 分鐘。學校官網提到 <b>06:55</b> 班車會繞駛白河商工；<b>17:30</b> 有班車自白河商工發車回新營</td></tr>
+          <tr><td><b>後壁火車站</b></td><td>搭<b>黃10</b>公車往六重溪方向，白河站下車</td><td>約 20 分鐘</td></tr>
+          <tr><td><b>嘉義火車站</b></td><td>搭<b>嘉義客運</b>往白河或關子嶺</td><td>從嘉義方向來最直接</td></tr>
+          <tr><td><b>高鐵嘉義站</b></td><td>先接駁到台鐵嘉義站，再轉客運</td><td>學校官網提到直接叫計程車約 500 元</td></tr>
+          <tr><td><b>開車（南二高）</b></td><td>下<b>白河交流道</b>，往白河市區到學校</td><td>最快的自駕路線</td></tr>
+          <tr><td><b>開車（中山高）</b></td><td>下<b>新營交流道</b>→長榮路接台1線→轉<b>172 鄉道</b>經安溪寮到白河商工</td><td>—</td></tr>
+          <tr><td><b>學校校車</b></td><td>有專車，路線<b>依教官室公告</b></td><td>新營、麻豆、鹽水、東山、六甲、嘉義、中埔等地都有班次可達</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
+
+    <div class="fact">
+      <strong>先講白話的：</strong>
+      如果你家在<b>新營、後壁、東山、鹽水</b>一帶，通勤完全可行，搭校車或黃幹線就到。
+      如果你住得遠、或是想把通勤的時間拿去練球，<b>那就直接看下一段的住宿</b>——這對想打球的人來說，可能是整個計畫裡最關鍵的一個決定。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 住宿 ================= -->
+<section id="dorm">
+  <div class="wrap rv">
+    <p class="eyebrow">住校</p>
+    <h2>白商有宿舍，而且很便宜</h2>
+    <p class="sub">學校官網明確寫著有男女生宿舍，形容是「完善而新穎的設施與自治化管理，為遠道學生提供了最佳的學習與生活空間」。</p>
+
+    <div class="grid g3">
+      <div class="card" style="border-color:rgba(52,211,153,.4)">
+        <div class="num" style="background:rgba(52,211,153,.16);color:var(--green)">💰</div>
+        <h3>住宿費</h3>
+        <p style="font-size:2rem;font-weight:900;color:var(--green);line-height:1.3;margin:6px 0">1,520 元<span style="font-size:1rem;color:var(--mute)"> / 學期</span></p>
+        <p>冷氣另外買<b>冷氣卡</b>使用。這個價格一學期不到兩千，比通勤的油錢車錢還便宜。</p>
+      </div>
+
+      <div class="card">
+        <div class="num">📞</div>
+        <h3>怎麼申請</h3>
+        <p>洽<b>教官室 生輔組長</b>。</p>
+        <p><b>(06) 685-2054 轉 323</b></p>
+        <p>錄取後、報到前就要問清楚：床位夠不夠、什麼時候申請、要準備什麼。</p>
+      </div>
+
+      <div class="card" style="border-color:rgba(255,122,26,.4)">
+        <div class="num">🏐</div>
+        <h3>為什麼打球的人該住校</h3>
+        <p><b>省下通勤時間</b>——來回一小時，一週就是五小時，一年就是兩百小時，全部可以拿去練球。</p>
+        <p><b>晚上還能加練</b>、作息穩定、跟隊友住在一起感情快、早上不會因為趕公車而遲到。</p>
+      </div>
+    </div>
+
+    <div class="warn" style="margin-top:24px">
+      ⚠️ 住宿費金額是學校官網現有的公告數字，但<b>每年可能調整</b>，而且<b>床位數量有限、不一定申請就有</b>。
+      冷氣卡、寢具、生活用品這些也要另外算。<b>打電話問是最快的</b>，順便可以一起問排球隊的事。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 學費與補助 ================= -->
+<section id="money">
+  <div class="wrap rv">
+    <p class="eyebrow">錢的問題</p>
+    <h2>學費要多少？政府補助什麼？</h2>
+    <p class="sub">先講最重要的一句：<b>高中職的「學費」現在是全免的。</b>從 112 學年度第 2 學期（2024 年 2 月）起，全國公私立高中職學生都不必繳學費。</p>
+
+    <div class="grid g2">
+      <div class="card" style="border-color:rgba(52,211,153,.4)">
+        <div class="num" style="background:rgba(52,211,153,.16);color:var(--green)">✓</div>
+        <h3>不用繳的</h3>
+        <p style="font-size:1.5rem;font-weight:900;color:var(--green);margin:4px 0">學費 ─ 0 元</p>
+        <p>全面免學費，<b>不用自己申請</b>。學校審定資格後，直接在註冊單上減免，家長不必跑流程。</p>
+      </div>
+
+      <div class="card">
+        <div class="num">📋</div>
+        <h3>還是要繳的</h3>
+        <p><b>雜費</b>、以及<b>代收代辦費</b>：實習實驗費、電腦網路使用費、平安保險費、家長會費、書籍費、冷氣費、住宿費等等。</p>
+        <p>公立高職這些加起來，一學期通常是<b>幾千元</b>的量級。<b>確切金額每年公告，以學校註冊組的收費表為準</b>——這點我沒有替你猜數字。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:34px">還有這些補助可以申請</h3>
+    <div class="tbl-wrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>身分／項目</th><th>補助內容</th><th>怎麼辦</th></tr></thead>
+        <tbody>
+          <tr><td><b>所有學生</b></td><td><b>免學費</b>（學費全免）</td><td>不用申請，學校直接在註冊單減免</td></tr>
+          <tr><td><b>低收入戶</b></td><td><b>學雜費全免</b></td><td>依《低收入戶學生及中低收入戶學生就讀高級中等以上學校學雜費減免辦法》，向學校提出</td></tr>
+          <tr><td><b>中低收入戶</b></td><td><b>學雜費減免 60%</b></td><td>同上</td></tr>
+          <tr><td><b>原住民學生</b></td><td>學雜費減免、<b>原住民優秀學生獎學金</b></td><td>白商官網固定公告受理，注意每學期期限</td></tr>
+          <tr><td><b>經濟弱勢</b></td><td>教育部<b>學產基金</b>助學金、各項急難救助</td><td>洽學校<b>學務處</b>或<b>輔導室</b></td></tr>
+          <tr><td><b>各科成績優異</b></td><td>校內外獎學金、民間單位獎助學金</td><td>學校網站「獎助學金」專區會陸續公告</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
+
+    <div class="fact">
+      <strong>一個很重要的規則：</strong>
+      各項補助<b>不能重複領，必須擇一申請</b>。如果你同時符合好幾種資格，
+      <b>去問學務處哪一個對你最有利</b>——這件事一定要問人，自己猜會虧到。
+    </div>
+
+    <div class="warn">
+      ⚠️ 這一段是依教育部與國教署的公開政策整理的。<b>金額、資格、申請期限每年都會調整</b>，
+      而且各校代收代辦費項目不同。<b>入學前請直接向白商註冊組／學務處確認當年度的收費表與補助辦法。</b>
     </div>
   </div>
 </section>
@@ -466,13 +582,10 @@
           <linearGradient id="lb" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
           <linearGradient id="lo" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff7a1a"/><stop offset="100%" stop-color="#ffd23f"/></linearGradient>
         </defs>
-
         <rect x="40" y="60" width="800" height="10" rx="5" fill="url(#lb)" opacity=".9"/>
         <rect x="40" y="230" width="800" height="10" rx="5" fill="url(#lo)" opacity=".9"/>
-
         <text x="40" y="42" fill="#93c5fd" font-size="19" font-weight="900" font-family="system-ui">路線 A ‧ 讀書線 → 考進白商</text>
         <text x="40" y="212" fill="#ffb374" font-size="19" font-weight="900" font-family="system-ui">路線 B ‧ 練球線 → 進得了球隊</text>
-
         <g font-family="system-ui" font-size="14" fill="#c3d0ea" font-weight="700" text-anchor="middle">
           <g>
             <circle cx="130" cy="65" r="13" fill="#3b82f6"/><text x="130" y="112" font-size="15" fill="#eef2ff">會考 5 科</text><text x="130" y="132">拚到 B 以上</text>
@@ -487,7 +600,6 @@
             <circle cx="760" cy="235" r="13" fill="#ff7a1a"/><text x="760" y="282" font-size="15" fill="#eef2ff">高一入隊 🏐</text><text x="760" y="302">2027 年 8 月</text>
           </g>
         </g>
-
         <path d="M760 78 C 760 140 760 170 760 222" stroke="#34d399" stroke-width="3" stroke-dasharray="6 8" fill="none"/>
         <text x="775" y="160" fill="#34d399" font-size="14" font-weight="900" font-family="system-ui">兩條線在這裡會合</text>
       </svg>
@@ -509,25 +621,19 @@
       <svg viewBox="0 0 900 260" role="img" aria-label="臺南區免試入學總積分 108 分組成比例">
         <g font-family="system-ui" font-weight="900">
           <text x="0" y="26" fill="#eef2ff" font-size="19">臺南區免試入學總積分：108 分</text>
-
           <rect x="0" y="52" width="416" height="42" rx="8" fill="#34d399" opacity=".85"/>
           <text x="16" y="79" fill="#052e21" font-size="16">多元學習表現　50 分</text>
-
           <rect x="424" y="52" width="300" height="42" rx="8" fill="#ff7a1a" opacity=".9"/>
           <text x="440" y="79" fill="#2b1405" font-size="16">國中教育會考　36 分</text>
-
           <rect x="732" y="52" width="84" height="42" rx="8" fill="#3b82f6" opacity=".85"/>
           <text x="744" y="79" fill="#08183a" font-size="14">就近 10</text>
-
           <rect x="824" y="52" width="76" height="42" rx="8" fill="#f472b6" opacity=".85"/>
           <text x="834" y="79" fill="#3b0a24" font-size="14">志願 12</text>
         </g>
-
         <g font-family="system-ui" font-size="15" fill="#c3d0ea">
           <text x="0" y="142" font-weight="900" fill="#34d399">多元學習表現（上限 50 分）＝ 你最該搶的地方</text>
           <text x="0" y="168">競賽成績 10｜獎勵紀錄 15｜服務學習 15｜社團參與 15｜體適能 10｜語言認證 5</text>
           <text x="0" y="192" fill="#9aabcc">（六項合計 70 分，最多採計 50 分 → 你不必樣樣滿分，但要「項項有做」）</text>
-
           <text x="0" y="228" font-weight="900" fill="#ff7a1a">會考換算：A++ 7｜A+ 6｜A 5｜B++ 4｜B+ 3｜B 2｜C 1（五科）＋ 寫作最高 1 分</text>
         </g>
       </svg>
@@ -543,31 +649,15 @@
     <h3 style="margin-top:34px">給你三個檔位的目標</h3>
     <div class="tbl-wrap" style="margin-top:14px">
       <table>
-        <thead>
-          <tr><th>檔位</th><th>會考目標</th><th>會考積分</th><th>意思是</th></tr>
-        </thead>
+        <thead><tr><th>檔位</th><th>會考目標</th><th>會考積分</th><th>意思是</th></tr></thead>
         <tbody>
-          <tr>
-            <td><b>🟢 保底</b></td>
-            <td>5 科都在 <b>B</b> 以上（不要出現 C）</td>
-            <td>10 分以上</td>
-            <td>只要多元學習表現有認真存，志願序把白商填第一，上榜機會很高。這是<b>底線，不是目標</b>。</td>
-          </tr>
-          <tr>
-            <td><b>🟡 目標</b></td>
-            <td>5 科都到 <b>B++</b></td>
-            <td>20 分左右</td>
-            <td>穩穩上，還能挑自己真正想讀的科。<b>這是你該瞄準的位置。</b></td>
-          </tr>
-          <tr>
-            <td><b>🔴 挑戰</b></td>
-            <td>2～3 科拿到 <b>A</b>，其餘 B++</td>
-            <td>25 分上下</td>
-            <td>高中三年會輕鬆很多，也替「打球＋升科大」多留一條路。做得到就別客氣。</td>
-          </tr>
+          <tr><td><b>🟢 保底</b></td><td>5 科都在 <b>B</b> 以上（不要出現 C）</td><td>10 分以上</td><td>只要多元學習表現有認真存，志願序把白商填第一，上榜機會很高。這是<b>底線，不是目標</b>。</td></tr>
+          <tr><td><b>🟡 目標</b></td><td>5 科都到 <b>B++</b></td><td>20 分左右</td><td>穩穩上，還能挑自己真正想讀的科。<b>這是你該瞄準的位置。</b></td></tr>
+          <tr><td><b>🔴 挑戰</b></td><td>2～3 科拿到 <b>A</b>，其餘 B++</td><td>25 分上下</td><td>高中三年會輕鬆很多，也替「打球＋升科大」多留一條路。做得到就別客氣。</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
 
     <div class="warn" style="margin-top:22px">
       ⚠️ <b>一定要自己再確認一次：</b>上面的積分規則是依<b>臺南區 115 學年度</b>公告整理的。
@@ -624,6 +714,37 @@
       </div>
     </div>
 
+    <div class="art">
+      <svg viewBox="0 0 900 300" role="img" aria-label="排球場俯視圖與場上位置">
+        <defs>
+          <linearGradient id="cg2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1e3a8a" stop-opacity=".55"/>
+            <stop offset="50%" stop-color="#1d4ed8" stop-opacity=".3"/>
+            <stop offset="100%" stop-color="#1e3a8a" stop-opacity=".55"/>
+          </linearGradient>
+        </defs>
+        <rect x="60" y="40" width="780" height="220" rx="6" fill="url(#cg2)" stroke="#60a5fa" stroke-width="3"/>
+        <line x1="450" y1="28" x2="450" y2="272" stroke="#ffd23f" stroke-width="5"/>
+        <line x1="320" y1="40" x2="320" y2="260" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="9 7"/>
+        <line x1="580" y1="40" x2="580" y2="260" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="9 7"/>
+        <g fill="#ffd23f" opacity=".9">
+          <circle cx="150" cy="90" r="16"/><circle cx="150" cy="210" r="16"/><circle cx="255" cy="150" r="16"/>
+          <circle cx="385" cy="80" r="16"/><circle cx="385" cy="220" r="16"/><circle cx="385" cy="150" r="16"/>
+        </g>
+        <g fill="#0b1020" font-size="15" font-weight="900" text-anchor="middle" font-family="system-ui">
+          <text x="150" y="96">5</text><text x="150" y="216">1</text><text x="255" y="156">6</text>
+          <text x="385" y="86">4</text><text x="385" y="226">2</text><text x="385" y="156">3</text>
+        </g>
+        <g fill="#9aabcc" font-size="15" font-family="system-ui" font-weight="700">
+          <text x="150" y="292" text-anchor="middle">後排（防守／接發球）</text>
+          <text x="385" y="292" text-anchor="middle">前排（攔網／攻擊）</text>
+          <text x="450" y="20" text-anchor="middle" fill="#ffd23f">球網 2.43 m（高中男子）</text>
+          <text x="700" y="150" text-anchor="middle" fill="#93c5fd">場地 18 m × 9 m　攻擊線 3 m</text>
+        </g>
+      </svg>
+      <p class="figcap">場上六個位置與輪轉。第一次進球隊，多半從「後排接發球、防守」開始，這正是你可以靠苦練最快追上別人的地方。</p>
+    </div>
+
     <h3 style="margin-top:38px">體能訓練菜單（在家、學校都能做）</h3>
     <div class="tbl-wrap" style="margin-top:14px">
       <table>
@@ -638,6 +759,7 @@
         </tbody>
       </table>
     </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
 
     <div class="fact good">
       <strong>一個具體目標：</strong>現在拿粉筆在牆上量一次你的<b>「摸高」</b>（原地摸＋助跑摸），拍照存起來。
@@ -658,7 +780,6 @@
     </p>
 
     <div class="tl">
-
       <div class="tl-item">
         <div class="tl-when">2026 年 8 月　暑假最後一段</div>
         <div class="tl-goal">主題：把地基打好 ‧ 建立每天的節奏</div>
@@ -753,7 +874,7 @@
             <ul>
               <li>寒假是練球最好的時候：<b>每天 1 小時</b></li>
               <li>找機會去看一場<b>HVL 乙級臺南市預賽</b>，親眼看白商比賽</li>
-              <li>⭐ 打電話到白商（06-685-2054）問：<b>「排球隊高一新生怎麼加入？」</b></li>
+              <li>⭐ 打電話到白商（06-685-2054）問：<b>「排球隊高一新生怎麼加入？」</b>順便問住宿</li>
               <li>目標：能和同學打完整的傳墊來回 10 拍</li>
             </ul>
           </div>
@@ -838,6 +959,7 @@
             <ul>
               <li>6 月放榜／填志願：<b>白商填第一志願（志願序 12 分）</b></li>
               <li>7 月上旬報到，注意學校公告的報到日期</li>
+              <li>⭐ <b>要住校的話，這時候就要申請宿舍</b>（教官室 轉 323）</li>
               <li>萬一沒上，還有<b>續招</b>——白商幾乎年年有，不要放棄</li>
             </ul>
           </div>
@@ -852,7 +974,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -877,6 +998,7 @@
         </tbody>
       </table>
     </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
 
     <div class="fact">
       <strong>一天只讀 2 小時夠嗎？</strong>
@@ -890,17 +1012,18 @@
 <section id="todo">
   <div class="wrap rv">
     <p class="eyebrow">今天、這禮拜</p>
-    <h2>現在馬上可以做的 7 件事</h2>
-    <p class="sub">計畫再好，沒開始都等於零。這 7 件事，一週內做完，你就已經領先大部分同學了。</p>
+    <h2>現在馬上可以做的 8 件事</h2>
+    <p class="sub">計畫再好，沒開始都等於零。這 8 件事，一週內做完，你就已經領先大部分同學了。</p>
 
     <ul class="check">
       <li><span class="ck">1</span><div><b>打一通電話到白商：(06) 685-2054</b>，問「請問學校排球隊高一新生要怎麼加入？有沒有招生或選拔？」——這通電話會給你最準確的答案，比網路上任何資料都可靠。</div></li>
-      <li><span class="ck">2</span><div><b>去買一顆 5 號排球和一副護膝。</b>擁有一顆自己的球，這件事會變得真實。</div></li>
-      <li><span class="ck">3</span><div><b>找一面牆，開始對牆墊球。</b>今天先墊 10 下就好。明天 12 下。</div></li>
-      <li><span class="ck">4</span><div><b>量摸高、拍照、寫上日期。</b>這是你的「Before」。</div></li>
-      <li><span class="ck">5</span><div><b>去問導師三件事：</b>我的服務學習時數夠了嗎？體適能什麼時候測？社團有沒有登記到？——這些直接換成免試入學的分數。</div></li>
-      <li><span class="ck">6</span><div><b>把手機的遊戲移到最後一頁</b>，晚上讀書時放到另一個房間。這一步比任何補習都有效。</div></li>
-      <li><span class="ck">7</span><div><b>把這一頁存到手機主畫面。</b>每個禮拜天晚上打開看一次，對照時間軸，看看自己有沒有跟上。</div></li>
+      <li><span class="ck">2</span><div><b>同一通電話順便轉 323（教官室生輔組長）</b>，問宿舍怎麼申請、床位多不多、住宿費現在多少。</div></li>
+      <li><span class="ck">3</span><div><b>去買一顆 5 號排球和一副護膝。</b>擁有一顆自己的球，這件事會變得真實。</div></li>
+      <li><span class="ck">4</span><div><b>找一面牆，開始對牆墊球。</b>今天先墊 10 下就好。明天 12 下。</div></li>
+      <li><span class="ck">5</span><div><b>量摸高、拍照、寫上日期。</b>這是你的「Before」。</div></li>
+      <li><span class="ck">6</span><div><b>去問導師三件事：</b>我的服務學習時數夠了嗎？體適能什麼時候測？社團有沒有登記到？——這些直接換成免試入學的分數。</div></li>
+      <li><span class="ck">7</span><div><b>把手機的遊戲移到最後一頁</b>，晚上讀書時放到另一個房間。這一步比任何補習都有效。</div></li>
+      <li><span class="ck">8</span><div><b>把這一頁存到手機主畫面。</b>每個禮拜天晚上打開看一次，對照時間軸，看看自己有沒有跟上。</div></li>
     </ul>
   </div>
 </section>
@@ -917,7 +1040,7 @@
       白商的排球隊，不是只收天才。<br>
       乙級聯賽的球隊，多半是一群「高一才第一次認真打排球」的人，
       靠著每天下午的加練，一年後站上臺南市的球場。<br><br>
-      你比他們早了<b id="days-inline2">—</b> 天開始。
+      你比他們早了 <b id="days-inline2">—</b> 天開始。
     </p>
     <p class="quote" style="font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--accent2)">
       別人在看你能不能做到的時候，<br>你已經在做了。
@@ -935,19 +1058,32 @@
     <h2 style="font-size:1.5rem">資料來源與提醒</h2>
 
     <div class="warn" style="margin-bottom:22px">
-      <b>這一頁是「作戰參考」，不是官方文件。</b>裡面的入學規則、球隊狀況都是 2026 年 8 月從公開資料整理的，
+      <b>這一頁是「作戰參考」，不是官方文件。</b>裡面的入學規則、球隊狀況、住宿費、學費補助都是 2026 年 8 月從公開資料整理的，
       每年都可能變。<b>最終一律以白河商工官網公告、臺南區免試入學委員會簡章、以及學校電話回覆為準。</b>
-      特別是「排球隊如何加入」，請務必打電話向學校體育組確認。
     </div>
 
     <p><b>查證來源：</b></p>
     <ul>
       <li>國立白河高級商工職業學校 官方網站 — <a href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">phvs.tn.edu.tw</a>（校名、地址、電話、科別、招生與續招公告）</li>
+      <li>白河商工「<a href="https://www.phvs.tn.edu.tw/section.asp?cID=42" target="_blank" rel="noopener">住宿與交通方式</a>」— 男女生宿舍、<b>住宿費每學期 1,520 元、冷氣另購冷氣卡</b>、生輔組長分機 323、各路線公車與開車路線</li>
+      <li>白河商工「<a href="https://www.phvs.tn.edu.tw/about.asp?cID=13" target="_blank" rel="noopener">交通位置</a>」— 新營／後壁／嘉義轉乘方式與時間</li>
       <li>中華民國高級中等學校體育總會 CTSSF — 111、112 學年度高中排球聯賽<b>男生組乙級預賽臺南市</b>成績表，參賽名單含<b>白河商工</b></li>
       <li>教育部 115 年 7 月 6 日臺教授國部字第 1155502031 號函 — <b>116 年國中教育會考訂於 116 年 5 月 15、16 日（六、日）辦理</b>；國中教育會考官網 <a href="https://cap.rcpet.edu.tw/" target="_blank" rel="noopener">cap.rcpet.edu.tw</a></li>
       <li>臺南區高級中等學校免試入學超額比序項目積分換算（115 學年度版本）— 總積分 108 分：志願序 12＋多元學習表現 50＋就近入學 10＋會考 36</li>
+      <li>教育部國民及學前教育署「高級中等學校免學費方案」— <b>112 學年度第 2 學期起全國公私立高中職全面免學費</b>；雜費與代收代辦費仍應繳交</li>
+      <li>《低收入戶學生及中低收入戶學生就讀高級中等以上學校學雜費減免辦法》— <b>低收入戶全免、中低收入戶減免 60%</b></li>
       <li>中國時報 2016/11/25 報導 — 白河商工、後壁高中、玉井工商試辦<b>完全免試入學</b></li>
       <li>維基百科「國立白河高級商工職業學校」— 創校沿革與校地面積</li>
+    </ul>
+
+    <p style="margin-top:18px"><b>照片授權：</b></p>
+    <ul>
+      <li>白河區景色 — 攝影 Mk2010，<b>CC BY-SA 3.0</b>，<a href="https://commons.wikimedia.org/wiki/File:Baihe_District,_Tainan_(Taiwan).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li>
+      <li>白河晨景（蓮花田）— 攝影 梁郡芳，<b>CC BY 4.0</b>，<a href="https://commons.wikimedia.org/wiki/File:%E7%99%BD%E6%B2%B3%E6%99%A8%E6%99%AF.tif" target="_blank" rel="noopener">Wikimedia Commons</a></li>
+      <li>其餘插圖（排球、球場、地圖、路線圖）皆為本頁原創繪製的向量圖。</li>
+      <li><b>本頁沒有使用白河商工校園照片。</b>要看真正的校園與球隊照片，請直接看
+        <a href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">學校官網</a>或
+        <a href="https://www.instagram.com/phvs_official/" target="_blank" rel="noopener">學校 IG @phvs_official</a>——那些照片版權屬於學校，這裡不轉載。</li>
     </ul>
 
     <p style="margin-top:18px"><b>沒查到、需要你自己問學校的部分：</b></p>
@@ -955,6 +1091,8 @@
       <li>白商排球隊<b>目前的教練、練習時間、是否有選拔門檻</b>（官網未公告）</li>
       <li>白商<b>114／115 學年度</b>是否持續組隊參賽（官方成績表僅查證到 111、112 學年度）</li>
       <li>各科<b>實際最低錄取積分</b>（每年放榜後才會知道）</li>
+      <li><b>當年度雜費與代收代辦費的確切金額</b>（各校各年度不同，須看註冊組收費表）</li>
+      <li>宿舍<b>目前床位數與是否額滿</b></li>
     </ul>
   </div>
 </section>
@@ -965,6 +1103,8 @@
     資料僅供參考，請以學校官方公告為準。
   </div>
 </footer>
+
+<button id="top" aria-label="回到頂端">↑</button>
 
 <script>
 (function(){
@@ -994,11 +1134,24 @@
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-    },{threshold:.08, rootMargin:'0px 0px -40px 0px'});
+    },{threshold:.06, rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
   } else {
     document.querySelectorAll('.rv').forEach(function(n){n.classList.add('in')});
   }
+
+  // ---- 回到頂端 ----
+  var topBtn = document.getElementById('top');
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){
+      topBtn.classList.toggle('show', window.scrollY > 600);
+      ticking = false;
+    });
+  }, {passive:true});
 })();
 </script>
 </body>
