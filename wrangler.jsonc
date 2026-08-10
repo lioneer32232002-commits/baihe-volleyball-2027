@@ -1,6 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "baihe-volleyball-2027",
+  // 釘住個人帳號：即使本機 wrangler 憑證被其他登入蓋掉，
+  // 也會直接報錯而不是誤部署到別人的 Cloudflare 帳號。
+  "account_id": "f171333970603616d44612bf079922b2",
   "compatibility_date": "2026-08-10",
   "assets": {
     "directory": "./public",
