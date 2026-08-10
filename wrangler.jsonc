@@ -1,15 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "baihe-volleyball-2027",
-  // 釘住個人帳號：即使本機 wrangler 憑證被其他登入蓋掉，
-  // 也會直接報錯而不是誤部署到別人的 Cloudflare 帳號。
-  "account_id": "f171333970603616d44612bf079922b2",
   "compatibility_date": "2026-08-10",
-  "assets": {
-    "directory": "./public",
-    "not_found_handling": "single-page-application"
-  },
-  "observability": {
-    "enabled": true
-  }
+  // Cloudflare Pages：網址為 baihe-volleyball-2027.pages.dev（不含帳號名稱）
+  // 注意：Pages 的設定檔不支援 account_id。
+  // 這個 Pages 專案只存在於個人帳號 wizard32232002@gmail.com
+  // (Account ID f171333970603616d44612bf079922b2)，
+  // 若本機憑證被切換成別的帳號，deploy 會因為找不到專案而失敗，不會誤送。
+  "pages_build_output_dir": "./public"
 }

@@ -17,24 +17,40 @@
 | 現在就做 | 一週內能完成的 7 件事 |
 | 資料來源 | 查證來源 + 明確標示「查不到、要自己問學校」的部分 |
 
+## 線上網址
+
+**https://baihe-volleyball-2027.pages.dev**
+
 ## 技術
 
 - 單一 `public/index.html`，**零外部依賴**：CSS、JavaScript、所有插圖（inline SVG）全部內嵌
 - 會考倒數計時鎖定 `2027-05-15T08:20:00+08:00`
 - 支援手機 / 平板 / 桌機，尊重 `prefers-reduced-motion`
-- 部署：Cloudflare Workers Static Assets
+- 部署：**Cloudflare Pages**（`*.pages.dev`，網址不含帳號名稱）
 
 ## 本機預覽
 
 ```bash
-npx wrangler dev
+npx wrangler pages dev
 ```
 
 ## 部署
 
+部署前**先確認帳號**，避免推到別人的 Cloudflare：
+
 ```bash
-npx wrangler deploy
+npx wrangler whoami
 ```
+
+應顯示 `wizard32232002@gmail.com` / Account ID `f171333970603616d44612bf079922b2`。確認後：
+
+```bash
+npx wrangler pages deploy
+```
+
+> Pages 的設定檔不支援 `account_id`，無法在檔案裡釘住帳號。
+> 但這個 Pages 專案只存在於上述個人帳號，若憑證被切換成其他帳號，
+> deploy 會因找不到專案而失敗，不會靜默誤送。
 
 ## 重要提醒
 
