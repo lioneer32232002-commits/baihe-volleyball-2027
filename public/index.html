@@ -177,6 +177,17 @@
   }
   #top.show{opacity:1;pointer-events:auto}
 
+  /* ---------- print button ---------- */
+  #printbtn{
+    position:fixed;right:16px;bottom:70px;z-index:60;
+    height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--line);
+    background:rgba(21,29,51,.94);color:var(--accent2);font-size:14px;font-weight:900;
+    display:flex;align-items:center;gap:7px;cursor:pointer;
+    backdrop-filter:blur(8px);
+    font-family:inherit;
+  }
+  #printbtn:hover{border-color:var(--accent2)}
+
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
   .rv.in{opacity:1;transform:none}
@@ -224,6 +235,63 @@
     .rv{opacity:1;transform:none}
     html{scroll-behavior:auto}
   }
+  /* ---------- 列印版：貼在書桌前用 ---------- */
+  @media print{
+    @page{margin:14mm 12mm}
+    html,body{background:#fff!important;color:#111!important;font-size:10.5pt;line-height:1.6}
+    nav,#top,#printbtn,.hero-art,.count,.cnote,.btns,.swipe,.mapbox,.linkgrid,.pep .btns{display:none!important}
+    .rv{opacity:1!important;transform:none!important}
+    section{padding:14pt 0!important;border-top:1px solid #bbb!important;break-inside:auto}
+    .wrap{max-width:100%;padding:0}
+    .hero{padding:0 0 12pt!important;background:none!important}
+    .hero-grid{display:block}
+    h1{font-size:20pt;color:#111!important;margin-bottom:6pt}
+    h1 br{display:none}
+    .hl{background:none!important}
+    h2{font-size:14pt;color:#111!important;break-after:avoid}
+    h3{font-size:11.5pt;color:#111!important;break-after:avoid}
+    .eyebrow{color:#666!important;font-size:8pt}
+    .lead,.sub,.card p,.tl-col ul,.check li{color:#222!important}
+    .tagline{border:1px solid #999!important;background:none!important;color:#111!important}
+
+    .card,.fact,.warn,.art,.tbl-wrap,.tl-body,.ph{
+      background:#fff!important;border:1px solid #bbb!important;
+      box-shadow:none!important;break-inside:avoid
+    }
+    .card:hover{transform:none!important}
+    .fact strong,.good strong,.tl-when,thead th{color:#111!important}
+    .fact{border-left:3px solid #666!important}
+    .num{background:#eee!important;color:#111!important;border:1px solid #bbb}
+
+    .grid.g3,.grid.g2{grid-template-columns:1fr 1fr!important;gap:8pt!important}
+    .tl{padding-left:0}
+    .tl::before{display:none}
+    .tl-item::before{display:none}
+    .tl-item{break-inside:avoid;margin-bottom:10pt}
+    .tl-body{grid-template-columns:1fr 1fr!important;padding:8pt 10pt!important}
+
+    .tbl-wrap{overflow:visible!important}
+    table{min-width:0!important;font-size:9pt;width:100%!important}
+    th,td{padding:4pt 6pt!important;border-bottom:1px solid #ddd!important;color:#111!important}
+    thead th{background:#f0f0f0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    tbody tr:hover{background:none!important}
+    .tag{border:1px solid #999!important;background:none!important;color:#111!important;font-size:8pt}
+
+    svg{max-height:70mm}
+    .ph img{max-height:45mm;object-fit:cover}
+    .ph figcaption{font-size:7.5pt;color:#555!important}
+    .check .ck{background:none!important;border:1px solid #666;color:#111!important}
+    .pep{background:none!important}
+    .quote{color:#111!important;font-size:13pt}
+    .quote em{color:#111!important}
+    footer{border-top:1px solid #bbb;color:#555!important}
+    a{color:#111!important;text-decoration:none}
+    .src a::after{content:" (" attr(href) ")";font-size:7.5pt;color:#777;word-break:break-all}
+
+    /* 重要段落各自從新的一頁開始，方便單張貼牆 */
+    #plan,#week,#todo{break-before:page}
+  }
+
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   .ball-spin{animation:spin 30s linear infinite;transform-origin:center}
@@ -853,9 +921,10 @@
     <p class="swipe">← 左右滑動看完整表格 →</p>
 
     <div class="fact good">
-      <strong>一個具體目標：</strong>現在拿粉筆在牆上量一次你的<b>「摸高」</b>（原地摸＋助跑摸），拍照存起來。
-      到 2027 年 4 月再量一次。<b>認真練 9 個月，進步 5～10 公分是很正常的事。</b>
-      這張照片，就是你拿去跟教練說「請讓我試試看」的底氣。
+      <strong>一個具體目標：</strong>現在拿粉筆在牆上量一次你的<b>「摸高」</b>（原地摸＋助跑摸），
+      <b>在牆上畫一條線、寫上今天的日期</b>，讓它就留在那裡。
+      到 2027 年 4 月再量一次，畫第二條線。<b>認真練 9 個月，進步 5～10 公分是很正常的事。</b>
+      那兩條線之間的距離，就是你拿去跟教練說「請讓我試試看」的底氣。
     </div>
   </div>
 </section>
@@ -870,6 +939,13 @@
       練球每天只要 30～50 分鐘，不會影響讀書——反而讓你更靜得下心。
     </p>
 
+    <div class="fact good">
+      <strong>🖨️ 這份計畫，建議印出來貼在書桌前。</strong>
+      不用手機、不用開網頁，抬頭就看得到自己這個月該做什麼。
+      <b>請大人按頁面右下角的「列印」按鈕</b>，會自動排成適合紙本的版面（進度表、一週作息、待辦清單會各自分頁，方便單張貼牆）。<br>
+      這一整頁的方法<b>沒有一項需要你自己有手機</b>——單字用紙卡、練球靠一面牆、進度靠一張紙。
+    </div>
+
     <div class="tl">
       <div class="tl-item">
         <div class="tl-when">2026 年 8 月　暑假最後一段</div>
@@ -879,7 +955,7 @@
             <h4 class="tag t-book">讀書</h4>
             <ul>
               <li>把國二的<b>數學</b>拿出來，只挑「課本例題＋基本習題」重寫一遍</li>
-              <li>每天背 <b>20 個英文單字</b>，用手機 App 也可以，重點是天天做</li>
+              <li>每天背 <b>20 個英文單字</b>：<b>自己做單字卡</b>（正面英文、背面中文），一疊放口袋隨身帶</li>
               <li>買一本會考<b>總複習講義</b>（國英數社自各一）</li>
               <li>固定讀書時間：晚上 <b>7:30–9:30</b>，寫在牆上</li>
             </ul>
@@ -890,8 +966,8 @@
               <li>買一顆自己的排球（5 號球）＋護膝</li>
               <li><b>每天跳繩 500 下</b>、對牆墊球 15 分鐘</li>
               <li>目標：對牆連續墊球 <b>20 下</b></li>
-              <li>去 YouTube 看「排球墊球教學」，把手型看懂</li>
-              <li><b>量摸高並拍照</b>，寫下日期</li>
+              <li><b>借爸媽的手機看一次</b>「排球墊球教學」影片，把手型看懂就好——看一次夠了，剩下都是練</li>
+              <li><b>量摸高</b>：在牆上做記號、寫上日期，請大人幫你拍一張存著</li>
             </ul>
           </div>
         </div>
@@ -1081,10 +1157,10 @@
         <thead><tr><th>時段</th><th>週一 ~ 週五</th><th>週六</th><th>週日</th></tr></thead>
         <tbody>
           <tr><td><b>放學後<br>16:30–17:30</b></td><td><span class="tag t-ball">練球</span> 對牆墊球／傳球 30 分＋跳繩 500 下</td><td><span class="tag t-ball">練球</span> 和同學打球 90 分鐘</td><td><span class="tag t-life">休息</span> 睡飽、拉筋、陪家人</td></tr>
-          <tr><td><b>晚餐 + 休息</b></td><td>18:00–19:30（不要碰手機遊戲）</td><td>自由</td><td>自由</td></tr>
+          <tr><td><b>晚餐 + 休息</b></td><td>18:00–19:30（真的放鬆，不要一直想著書）</td><td>自由</td><td>自由</td></tr>
           <tr><td><b>晚上第一段<br>19:30–20:30</b></td><td><span class="tag t-book">讀書</span> 數學／理化（頭腦最清楚的時候給最難的）</td><td><span class="tag t-book">讀書</span> 本週錯題本總整理</td><td><span class="tag t-book">讀書</span> 一整套模擬題（計時）</td></tr>
           <tr><td><b>晚上第二段<br>20:45–21:45</b></td><td><span class="tag t-book">讀書</span> 國文／英文／社會（輪流）</td><td><span class="tag t-book">讀書</span> 英文單字＋作文一篇</td><td><span class="tag t-book">讀書</span> 檢討＋排下週計畫</td></tr>
-          <tr><td><b>睡前<br>22:00–22:30</b></td><td>複習今天背過的單字（5 分鐘）→ 睡</td><td>看排球比賽影片</td><td>早睡</td></tr>
+          <tr><td><b>睡前<br>22:00–22:30</b></td><td>拿出單字卡複習今天背的（5 分鐘）→ 睡</td><td>借大人手機看一場排球比賽（一週一次就好）</td><td>早睡</td></tr>
           <tr><td><b>合計</b></td><td>讀書 2 小時 ‧ 練球 1 小時</td><td>讀書 2 小時 ‧ 練球 1.5 小時</td><td>讀書 2 小時 ‧ 完全休息</td></tr>
         </tbody>
       </table>
@@ -1093,8 +1169,9 @@
 
     <div class="fact">
       <strong>一天只讀 2 小時夠嗎？</strong>
-      如果那 2 小時你是<b>手機放在另一個房間、專心的 2 小時</b>——夠。
-      比起讀 5 小時但一直分心，<b>穩定的 2 小時連做 250 天</b>才是真正會贏的方式。
+      如果那 2 小時你是<b>桌上只有書、心裡沒有別的事、專心的 2 小時</b>——夠。
+      比起讀 5 小時但一直分心，<b>穩定的 2 小時連做 250 天</b>才是真正會贏的方式。<br>
+      而且說真的，<b>沒有手機這件事，在國三這年是你的優勢不是劣勢。</b>你少掉了大部分同學最大的敵人。
     </div>
   </div>
 </section>
@@ -1111,10 +1188,10 @@
       <li><span class="ck">2</span><div><b>同一通電話順便轉 323（教官室生輔組長）</b>，問宿舍怎麼申請、床位多不多、住宿費現在多少。</div></li>
       <li><span class="ck">3</span><div><b>去買一顆 5 號排球和一副護膝。</b>擁有一顆自己的球，這件事會變得真實。</div></li>
       <li><span class="ck">4</span><div><b>找一面牆，開始對牆墊球。</b>今天先墊 10 下就好。明天 12 下。</div></li>
-      <li><span class="ck">5</span><div><b>量摸高、拍照、寫上日期。</b>這是你的「Before」。</div></li>
-      <li><span class="ck">6</span><div><b>去問導師三件事：</b>我的服務學習時數夠了嗎？體適能什麼時候測？社團有沒有登記到？——這些直接換成免試入學的分數。</div></li>
-      <li><span class="ck">7</span><div><b>把手機的遊戲移到最後一頁</b>，晚上讀書時放到另一個房間。這一步比任何補習都有效。</div></li>
-      <li><span class="ck">8</span><div><b>把這一頁存到手機主畫面。</b>每個禮拜天晚上打開看一次，對照時間軸，看看自己有沒有跟上。</div></li>
+      <li><span class="ck">5</span><div><b>量摸高、在牆上畫線、寫上日期。</b>這是你的「Before」，讓它一直掛在那裡提醒你。</div></li>
+      <li><span class="ck">6</span><div><b>做一疊英文單字卡。</b>找厚一點的紙裁成小卡，正面英文、背面中文，一天做 20 張、背 20 張。放口袋，排隊、等車、下課都能翻。</div></li>
+      <li><span class="ck">7</span><div><b>去問導師三件事：</b>我的服務學習時數夠了嗎？體適能什麼時候測？社團有沒有登記到？——這些直接換成免試入學的分數。</div></li>
+      <li><span class="ck">8</span><div><b>請大人把這一頁印出來，貼在你書桌前面。</b>（頁面右下角有列印按鈕，會自動排成適合紙本的版面。）每個禮拜天晚上對一次進度，看看自己有沒有跟上。</div></li>
     </ul>
   </div>
 </section>
@@ -1195,6 +1272,7 @@
   </div>
 </footer>
 
+<button id="printbtn" aria-label="列印這一頁">🖨️ 列印</button>
 <button id="top" aria-label="回到頂端">↑</button>
 
 <script>
@@ -1231,9 +1309,10 @@
     document.querySelectorAll('.rv').forEach(function(n){n.classList.add('in')});
   }
 
-  // ---- 回到頂端 ----
+  // ---- 回到頂端 / 列印 ----
   var topBtn = document.getElementById('top');
   topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  document.getElementById('printbtn').addEventListener('click', function(){ window.print(); });
   var ticking = false;
   window.addEventListener('scroll', function(){
     if(ticking) return;
