@@ -149,6 +149,60 @@
   .check li{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px dashed var(--line);color:#c3d0ea;font-size:.98rem}
   .check li:last-child{border-bottom:none}
   .check .ck{flex:none;width:24px;height:24px;border-radius:7px;background:rgba(52,211,153,.15);color:var(--green);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
+  /* 可以真的打勾的空格 */
+  .check .box{flex:none;width:22px;height:22px;border-radius:5px;border:2px solid var(--mute);margin-top:3px}
+
+  /* 紙本沒有倒數（他手上這張紙可能是幾個月後才拿到），
+     所以跟「還剩幾天」有關的句子，螢幕和紙本各講各的 */
+  .pr-only,.pr-block{display:none}
+
+  /* ---------- 排版：不要有孤字、標點自己一行 ---------- */
+  /* pretty 會回頭調整前幾行，避免最後一行只剩一兩個字或一個標點。
+     很多內文包在 div 裡（.fact/.warn/.check li 的 div），所以要套在 * 上才蓋得完。
+     這裡一定要用 text-wrap-style 長寫法：text-wrap 是簡寫，會連 text-wrap-mode 一起設成
+     wrap，把底下 <b> 從 td 繼承來的 white-space:nowrap 蓋掉，欄位就又被拆行了。 */
+  *{text-wrap-style:pretty;line-break:strict}
+  h1,h2,h3,h4,.quote{text-wrap-style:balance}
+  /* 短欄位撐開，不要被擠成一欄兩個字 */
+  .nw,
+  .t-go td:nth-child(1),
+  .t-bus td:nth-child(1),.t-bus td:nth-child(4),
+  .t-commute td:nth-child(3),
+  .t-trip td:nth-child(1),.t-trip td:nth-child(3),
+  .t-dormweek td:nth-child(1),
+  .t-aid td:nth-child(1),
+  .t-tier td:nth-child(1),.t-tier td:nth-child(3),
+  .t-fit td:nth-child(1),.t-fit td:nth-child(3),
+  .t-week td:nth-child(1),
+  .t-tick td:nth-child(1){white-space:nowrap}
+
+  /* 每週打勾表：右邊是可以真的打勾的空格 */
+  .t-tick{min-width:520px}
+  .t-tick th:not(:first-child),.t-tick td:not(:first-child){width:40px;text-align:center}
+  .t-tick tbody td:not(:first-child){height:34px;border-left:1px solid var(--line)}
+  .t-tick thead th:not(:first-child){border-left:1px solid var(--line)}
+
+  /* ---------- 要動筆寫的區塊（打電話、問導師） ---------- */
+  .ask{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:22px 0}
+  .ask > h4{margin:0 0 4px;font-size:1.08rem;font-weight:900;color:var(--accent2);letter-spacing:.01em}
+  .ask .who{font-size:.88rem;color:var(--mute);margin:0 0 16px}
+  .tel{display:inline-block;font-size:1.5rem;font-weight:900;letter-spacing:.02em;color:var(--ink);
+       border:1.5px solid var(--line);border-radius:12px;padding:8px 16px;margin:0 0 14px;font-variant-numeric:tabular-nums}
+  .script{border-left:3px solid var(--accent2);background:var(--surface2);border-radius:0 12px 12px 0;
+          padding:13px 16px;margin:12px 0 18px;font-size:.97rem;color:#dbe4f7}
+  .script b{color:var(--accent2)}
+  .qa{margin:0 0 16px}
+  .qa .q{font-weight:800;font-size:.97rem;color:var(--ink);margin:0 0 8px}
+  .qa .q span{color:var(--accent);margin-right:6px}
+  .blank{border-bottom:1.5px dashed var(--line);height:30px;margin:0 0 8px}
+  .blank.short{max-width:16em}
+  .hint{font-size:.84rem;color:var(--mute);margin:6px 0 0}
+
+  /* ---------- 階段標籤（不用日期，照順序做） ---------- */
+  .stage{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px;padding-top:18px;border-top:2px solid var(--line)}
+  .stage:first-of-type{margin-top:10px;border-top:none;padding-top:0}
+  .stage b{font-size:1.18rem;font-weight:900;color:var(--accent2);white-space:nowrap}
+  .stage span{font-size:.88rem;color:var(--mute)}
 
   /* ---------- pep ---------- */
   .pep{background:radial-gradient(700px 340px at 50% 0%, rgba(255,122,26,.20), transparent 65%),linear-gradient(180deg,#101830,#0b1020);text-align:center}
@@ -280,6 +334,33 @@
     .num{background:#eee!important;color:#111!important;border:1px solid #bbb}
 
     .grid.g3,.grid.g2{grid-template-columns:1fr 1fr!important;gap:8pt!important}
+    /* 只有 3 格的重點區改成整排長方格、疊三層，不會留一格自己一行 */
+    .grid.stack{grid-template-columns:1fr!important;gap:7pt!important}
+    .grid.stack .card{padding:12pt 14pt!important}
+
+    /* ---- 要動筆寫的區塊：線要印得出來、整塊不跨頁 ---- */
+    .ask{background:#fff!important;border:1px solid #999!important;padding:12pt 14pt!important;
+         break-inside:avoid;page-break-inside:avoid}
+    .ask > h4{color:#111!important;font-size:11.5pt}
+    .ask .who{color:#555!important}
+    .tel{border:1.5px solid #333!important;font-size:15pt;padding:5pt 10pt!important;margin-bottom:8pt}
+    .script{background:#f5f5f5!important;border-left:3px solid #333!important;color:#111!important;
+            padding:8pt 10pt!important;margin:8pt 0 11pt;break-inside:avoid;page-break-inside:avoid;
+            -webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .qa{break-inside:avoid;page-break-inside:avoid;margin-bottom:9pt}
+    .blank{border-bottom:1.2px dashed #666!important;height:22pt;margin-bottom:5pt}
+    .hint{color:#555!important;font-size:8pt}
+    .stage{border-top:2px solid #333!important;margin:16pt 0 3pt;padding-top:8pt;break-after:avoid;page-break-after:avoid}
+    .stage b{color:#111!important;font-size:12.5pt}
+    .stage span{color:#555!important}
+    .check .box{border:1.5px solid #333!important;width:14pt;height:14pt}
+    .sc-only{display:none!important}
+    .pr-only{display:inline!important}
+    .pr-block{display:block!important}
+    /* 打勾表：格子要留得夠大，筆才寫得進去 */
+    .t-tick{min-width:0!important}
+    .t-tick tbody td:not(:first-child){height:20pt;border-left:1px solid #999!important}
+    .t-tick thead th:not(:first-child){border-left:1px solid #999!important}
     .tl{padding-left:0}
     .tl::before{display:none}
     .tl-item::before{display:none}
@@ -472,7 +553,7 @@
     <h2>開始練之前，先知道這三件事</h2>
     <p class="sub">很多人以為「要進高中球隊＝要當體育班＝要考術科」。在白商，這件事其實不是這樣。這三個真相會直接改變你的努力方向。</p>
 
-    <div class="grid g3">
+    <div class="grid g3 stack">
       <div class="card">
         <div class="num">1</div>
         <h3>學校叫「白河商工」</h3>
@@ -497,7 +578,7 @@
     <div class="fact good">
       <strong>所以你的目標其實很單純：</strong>
       第一，穩穩考進白商（門檻不高，但別出包）。第二，開學前把身體和基本動作練到「教練願意留你」的程度。
-      這兩件事，你都還有 <b id="days-inline">—</b> 天可以準備。
+      這兩件事，<span class="sc-only">你都還有 <b id="days-inline">—</b> 天可以準備</span><span class="pr-only">不管你是什麼時候拿到這張紙的，從今天開始都還來得及</span>。
     </div>
   </div>
 </section>
@@ -529,8 +610,15 @@
     <h3 style="margin-top:38px">📸 想看真正的校園和球隊照片？</h3>
     <p class="sub" style="margin-bottom:18px">
       這一頁沒有放白商的校園照片——那些照片的版權是學校的，這裡不轉載。
-      但下面四個按鈕會直接帶你到官方來源，全部都是真的、而且是最新的。
+      <span class="sc-only">但下面四個按鈕會直接帶你到官方來源，全部都是真的、而且是最新的。</span>
+      <span class="pr-only">要看真正的校園和球隊照片，請大人用手機或電腦開下面兩個地方，都是官方的、也是更新最快的。</span>
     </p>
+    <div class="pr-block src" style="margin-bottom:18px">
+      <ul>
+        <li><b>學校官網</b> <a href="https://www.phvs.tn.edu.tw/">phvs.tn.edu.tw</a> — 校園活動、榮譽榜、招生公告</li>
+        <li><b>學校官方 IG</b> <a href="https://www.instagram.com/phvs_official/">@phvs_official</a> — 學生活動、球隊近況</li>
+      </ul>
+    </div>
     <div class="linkgrid">
       <a class="linkcard" href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">
         <span class="li">🏫</span>
@@ -578,71 +666,55 @@
     </div>
 
     <div class="art">
-      <svg viewBox="0 0 900 460" role="img" aria-label="白河商工相對位置與交通示意圖">
-        <defs>
-          <linearGradient id="mapbg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#16305a" stop-opacity=".5"/>
-            <stop offset="100%" stop-color="#0f1c33" stop-opacity=".5"/>
-          </linearGradient>
-        </defs>
-        <rect x="0" y="0" width="900" height="460" rx="14" fill="url(#mapbg)"/>
+      <svg viewBox="0 0 900 430" role="img" aria-label="從安南區的家到白河商工的兩種走法">
+        <rect x="0" y="0" width="900" height="430" rx="12" fill="#eef3fa" stroke="#c9d6ea" stroke-width="1.5"/>
+        <g font-family="system-ui">
+          <text x="30" y="42" font-size="20" font-weight="900" fill="#0f172a">從你家到白河商工，只有兩種走法</text>
+          <text x="30" y="68" font-size="13.5" font-weight="700" fill="#475569">住校之後，這段路你一週只走兩趟：週日下午去學校、週五晚上回家。</text>
 
-        <!-- 山區 -->
-        <path d="M640 40 L720 150 L560 150 Z" fill="#1f3a2e" opacity=".55"/>
-        <path d="M720 90 L810 200 L630 200 Z" fill="#1f3a2e" opacity=".45"/>
-        <text x="712" y="180" fill="#6ee7b7" font-size="14" font-weight="800" font-family="system-ui" text-anchor="middle" opacity=".8">關子嶺 ‧ 山區</text>
+          <!-- 走法 A：家長開車 -->
+          <text x="30" y="118" font-size="16" font-weight="900" fill="#1d4ed8">走法 A ‧ 家長開車</text>
+          <text x="455" y="140" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">走 台17／台19 接 台1線，或上 國道1號（台南交流道 → 新營交流道）</text>
+          <line x1="90" y1="168" x2="820" y2="168" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="90" cy="168" r="13" fill="#0f766e"/>
+          <circle cx="820" cy="168" r="13" fill="#c2410c"/>
+          <text x="90" y="202" font-size="14.5" font-weight="900" fill="#0f172a" text-anchor="middle">家</text>
+          <text x="90" y="222" font-size="12.5" font-weight="700" fill="#475569" text-anchor="middle">北安路／台江大道</text>
+          <text x="820" y="202" font-size="14.5" font-weight="900" fill="#0f172a" text-anchor="middle">白河商工</text>
+          <text x="820" y="222" font-size="12.5" font-weight="700" fill="#475569" text-anchor="middle">白河區新興路 528 號</text>
+          <text x="455" y="200" font-size="15" font-weight="900" fill="#1d4ed8" text-anchor="middle">約 50～70 分鐘 ‧ 約 45～50 公里</text>
 
-        <!-- 國道 -->
-        <line x1="150" y1="20" x2="150" y2="440" stroke="#64748b" stroke-width="9" opacity=".5"/>
-        <text x="150" y="452" fill="#94a3b8" font-size="13" font-weight="800" font-family="system-ui" text-anchor="middle">國道1號（中山高）</text>
-        <line x1="600" y1="20" x2="600" y2="440" stroke="#64748b" stroke-width="9" opacity=".5"/>
-        <text x="600" y="452" fill="#94a3b8" font-size="13" font-weight="800" font-family="system-ui" text-anchor="middle">國道3號（南二高）</text>
+          <!-- 走法 B：自己搭車 -->
+          <text x="30" y="272" font-size="16" font-weight="900" fill="#b45309">走法 B ‧ 你自己搭車</text>
+          <line x1="90" y1="322" x2="820" y2="322" stroke="#b45309" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="90" cy="322" r="13" fill="#0f766e"/>
+          <circle cx="340" cy="322" r="10" fill="#b45309"/>
+          <circle cx="590" cy="322" r="10" fill="#b45309"/>
+          <circle cx="820" cy="322" r="13" fill="#c2410c"/>
+          <text x="215" y="308" font-size="12.5" font-weight="800" fill="#334155" text-anchor="middle">市區公車 25～35 分</text>
+          <text x="465" y="308" font-size="12.5" font-weight="800" fill="#334155" text-anchor="middle">台鐵區間車 35～45 分</text>
+          <text x="705" y="308" font-size="12.5" font-weight="800" fill="#334155" text-anchor="middle">黃幹線公車 約 25 分</text>
+          <text x="90" y="352" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">家</text>
+          <text x="340" y="352" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">台南火車站</text>
+          <text x="590" y="352" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">新營火車站</text>
+          <text x="820" y="352" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">白河商工</text>
+          <text x="455" y="382" font-size="15" font-weight="900" fill="#b45309" text-anchor="middle">全程約 2～2.5 小時（含等車、轉乘）</text>
 
-        <!-- 連線 -->
-        <g stroke="#ffd23f" stroke-width="3" stroke-dasharray="8 7" fill="none" opacity=".75">
-          <path d="M215 300 L400 240"/>
-          <path d="M300 90 L400 240" opacity=".6"/>
-          <path d="M262 392 L400 240" opacity=".6"/>
-          <path d="M400 240 L592 240" opacity=".5"/>
-        </g>
-
-        <!-- 地點 -->
-        <g font-family="system-ui" font-weight="900">
-          <!-- 白河商工 -->
-          <circle cx="400" cy="240" r="17" fill="#ff7a1a"/>
-          <circle cx="400" cy="240" r="27" fill="none" stroke="#ff7a1a" stroke-width="2.5" opacity=".55"/>
-          <text x="400" y="247" font-size="17" fill="#2b1405" text-anchor="middle">🏐</text>
-          <text x="400" y="288" font-size="18" fill="#ffd23f" text-anchor="middle">白河商工</text>
-          <text x="400" y="309" font-size="13" fill="#c3d0ea" text-anchor="middle" font-weight="700">白河區新興路 528 號</text>
-
-          <!-- 新營 -->
-          <circle cx="215" cy="300" r="11" fill="#3b82f6"/>
-          <text x="215" y="332" font-size="16" fill="#93c5fd" text-anchor="middle">新營火車站</text>
-          <text x="215" y="352" font-size="12.5" fill="#9aabcc" text-anchor="middle" font-weight="700">黃幹線公車 ‧ 約 25 分鐘</text>
-
-          <!-- 嘉義 -->
-          <circle cx="300" cy="90" r="11" fill="#3b82f6"/>
-          <text x="300" y="72" font-size="16" fill="#93c5fd" text-anchor="middle">嘉義火車站</text>
-          <text x="300" y="52" font-size="12.5" fill="#9aabcc" text-anchor="middle" font-weight="700">嘉義客運往白河／關子嶺</text>
-
-          <!-- 後壁 -->
-          <circle cx="262" cy="392" r="11" fill="#3b82f6"/>
-          <text x="262" y="418" font-size="16" fill="#93c5fd" text-anchor="middle">後壁火車站</text>
-          <text x="262" y="437" font-size="12.5" fill="#9aabcc" text-anchor="middle" font-weight="700">黃10 公車 ‧ 約 20 分鐘</text>
-
-          <!-- 交流道 -->
-          <rect x="566" y="226" width="30" height="28" rx="6" fill="#64748b" opacity=".8"/>
-          <text x="581" y="246" font-size="15" fill="#0b1020" text-anchor="middle">⇱</text>
-          <text x="640" y="246" font-size="14" fill="#cbd5e1" text-anchor="start" font-weight="800">白河交流道</text>
-
-          <text x="820" y="40" font-size="13" fill="#64748b" text-anchor="end" font-weight="700">↑ 北：嘉義　↓ 南：臺南市區</text>
+          <text x="30" y="412" font-size="12" font-weight="700" fill="#64748b">⚠️ 時間是概估值。台鐵班次和公車時刻每年都會變，出發前一定要自己查一次。</text>
         </g>
       </svg>
-      <p class="figcap">相對位置示意圖（非等比例地圖）。實際路線與班次請以學校公告及公車動態為準。</p>
+      <p class="figcap">路線示意圖（非等比例地圖）。實際班次請以台鐵、大台南公車動態及學校公告為準。</p>
     </div>
 
     <h3>學校實際位置</h3>
-    <p class="sub" style="margin-bottom:14px">可以拖曳、放大縮小。校地範圍、周邊街道、操場位置都看得到。</p>
+    <p class="sub sc-only" style="margin-bottom:14px">可以拖曳、放大縮小。校地範圍、周邊街道、操場位置都看得到。</p>
+    <div class="pr-block src" style="margin-bottom:14px">
+      <ul>
+        <li><b>地址：</b>臺南市白河區新興路 528 號</li>
+        <li><b>電話：</b>(06) 685-2054</li>
+        <li><b>座標：</b>23.353023, 120.41629（給大人用手機導航用）</li>
+      </ul>
+    </div>
     <div class="mapbox">
       <iframe
         title="國立白河商工位置地圖"
@@ -658,7 +730,7 @@
     <h3>怎麼去學校</h3>
     <p class="sub" style="margin-bottom:14px">以下路線整理自學校官網「住宿與交通方式」頁面。</p>
     <div class="tbl-wrap">
-      <table>
+      <table class="t-go">
         <thead><tr><th>出發地</th><th>怎麼搭</th><th>備註</th></tr></thead>
         <tbody>
           <tr><td><b>新營火車站</b></td><td>轉<b>大台南黃幹線</b>公車往白河</td><td>約 25 分鐘。學校官網提到 <b>06:55</b> 班車會繞駛白河商工；<b>17:30</b> 有班車自白河商工發車回新營</td></tr>
@@ -678,7 +750,7 @@
       以下整理自學校 115 學年度公告的專車路線表。<b>先看清楚它到哪、不到哪</b>，這會直接決定你要不要住校。
     </p>
     <div class="tbl-wrap">
-      <table>
+      <table class="t-bus">
         <thead><tr><th>路線</th><th>大致範圍</th><th>最遠站點（距學校）</th><th>最早發車</th></tr></thead>
         <tbody>
           <tr><td><b>嘉義線</b></td><td>民雄 → 嘉義市區 → 水上 → 南靖 → 後壁上茄苳</td><td>早安山丘（民雄）<b>28.8 km</b></td><td>06:45</td></tr>
@@ -698,10 +770,13 @@
       白商的校車是設計給嘉義南部和台南最北端（新營、後壁、鹽水、東山、六甲、麻豆）的學生搭的。
     </div>
 
-    <h3 style="margin-top:34px">如果你家在臺南市區、安南區、永康一帶</h3>
-    <p class="sub" style="margin-bottom:14px">那要面對的是一個很現實的數字：<b>單程約 45～50 公里。</b>把每種走法算給你看。</p>
+    <h3 style="margin-top:34px">你家在安南區（北安路／台江大道一帶），先看清楚這件事</h3>
+    <p class="sub" style="margin-bottom:14px">
+      從你家到學校<b>單程約 45～50 公里</b>，而且校車最南只到麻豆，繞不到你家。
+      先把「每天通勤」的四種走法算給你看，你就會知道為什麼答案只有一個。
+    </p>
     <div class="tbl-wrap">
-      <table>
+      <table class="t-commute">
         <thead><tr><th>方式</th><th>單程時間</th><th>幾點要出門</th><th>可行嗎</th></tr></thead>
         <tbody>
           <tr>
@@ -737,7 +812,64 @@
       <strong>所以結論很清楚：住校。</strong>
       這不是「比較方便」的問題，是<b>「能不能真的去讀、能不能真的打球」</b>的問題。
       通勤方案每天吃掉你 4～5 小時，扣掉上課和睡覺，你根本沒有時間練球——那進白商打排球這件事就變成假的了。
-      住校之後，這 4～5 小時全部變成你的。<b>下一段就講住宿。</b>
+      住校之後，這 4～5 小時全部變成你的。
+    </div>
+
+    <h3 style="margin-top:38px">住校之後，一週兩趟怎麼走</h3>
+    <p class="sub" style="margin-bottom:14px">
+      這才是你真正會走的路：<b>週日下午去學校、週五晚上回家，一週兩趟</b>，不是每天。
+      同樣一段路，一週跑兩趟跟一天跑兩趟，是完全不同的兩件事。
+    </p>
+    <div class="tbl-wrap">
+      <table class="t-trip">
+        <thead><tr><th>走法</th><th>怎麼走</th><th>大約多久</th><th>什麼時候用</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>A　家長開車</b></td>
+            <td>台17／台19 接台1線，或上國道1號<br>台南交流道 → 新營交流道 → 白河</td>
+            <td><b>50～70 分鐘</b></td>
+            <td>開學、放長假、帶大件行李的時候。一趟就到，最省事</td>
+          </tr>
+          <tr>
+            <td><b>B　你自己搭車</b></td>
+            <td>市區公車到台南火車站 → 台鐵區間車到新營<br>→ 轉大台南黃幹線公車到白河</td>
+            <td><b>2～2.5 小時</b></td>
+            <td><b>平常的週日、週五</b>。學會這條路，你就不用等家長有沒有空</td>
+          </tr>
+          <tr>
+            <td><b>C　混合</b></td>
+            <td>家長載到台南火車站或新營站，<br>剩下的路自己搭</td>
+            <td>1～1.5 小時</td>
+            <td>家長只有半小時，或你回家太晚的時候</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
+
+    <div class="fact">
+      <strong>走法 B 要自己先查清楚三件事，寫在下面。</strong>
+      這三個數字沒有人會幫你查，但知道了，你就能一個人來回。
+      <div class="qa" style="margin-top:14px">
+        <p class="q"><span>1</span>從家附近哪一站上車、搭哪一路市區公車到台南火車站？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>2</span>週日下午往新營的區間車有哪幾班？我要搭幾點那班？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>3</span>新營往白河的黃幹線，<b>末班車是幾點</b>？（回家那天最重要）</p>
+        <div class="blank"></div>
+      </div>
+      <p class="hint">學校官網提到黃幹線 <b>17:30</b> 有班車自白河商工發車回新營，可以當參考，但一定要自己再查一次。</p>
+    </div>
+
+    <div class="fact good">
+      <strong>先學會走法 B，你會多出一件別人沒有的東西：自由。</strong>
+      不用等家長有空、不用看誰的臉色，你自己就能回學校練球、也能自己回家。
+      高一開學前找一個週末，<b>請大人陪你把走法 B 實際走一次</b>，走過一次就不怕了。
+      <b>下一段就講住宿。</b>
     </div>
   </div>
 </section>
@@ -759,7 +891,7 @@
       這 4 小時，就是你在球隊裡追上別人的全部本錢。
     </div>
 
-    <div class="grid g3">
+    <div class="grid g3 stack">
       <div class="card" style="border-color:rgba(52,211,153,.4)">
         <div class="num" style="background:rgba(52,211,153,.16);color:var(--green)">💰</div>
         <h3>住宿費</h3>
@@ -785,7 +917,7 @@
 
     <h3 style="margin-top:34px">住校的一週長這樣</h3>
     <div class="tbl-wrap" style="margin-top:14px">
-      <table>
+      <table class="t-dormweek">
         <thead><tr><th>時間</th><th>做什麼</th></tr></thead>
         <tbody>
           <tr><td><b>週日 傍晚</b></td><td>家長開車送到學校（約 1 小時車程），帶好一週的衣物</td></tr>
@@ -835,15 +967,15 @@
 
     <h3 style="margin-top:34px">還有這些補助可以申請</h3>
     <div class="tbl-wrap" style="margin-top:14px">
-      <table>
+      <table class="t-aid">
         <thead><tr><th>身分／項目</th><th>補助內容</th><th>怎麼辦</th></tr></thead>
         <tbody>
           <tr><td><b>所有學生</b></td><td><b>免學費</b>（學費全免）</td><td>不用申請，學校直接在註冊單減免</td></tr>
           <tr><td><b>低收入戶</b></td><td><b>學雜費全免</b></td><td>依《低收入戶學生及中低收入戶學生就讀高級中等以上學校學雜費減免辦法》，向學校提出</td></tr>
           <tr><td><b>中低收入戶</b></td><td><b>學雜費減免 60%</b></td><td>同上</td></tr>
-          <tr><td><b>原住民學生</b></td><td>學雜費減免、<b>原住民優秀學生獎學金</b></td><td>白商官網固定公告受理，注意每學期期限</td></tr>
+          <tr><td><b>原住民學生</b></td><td>學雜費減免、<br><b>原住民優秀學生獎學金</b></td><td>白商官網固定公告受理，注意每學期期限</td></tr>
           <tr><td><b>經濟弱勢</b></td><td>教育部<b>學產基金</b>助學金、各項急難救助</td><td>洽學校<b>學務處</b>或<b>輔導室</b></td></tr>
-          <tr><td><b>各科成績優異</b></td><td>校內外獎學金、民間單位獎助學金</td><td>學校網站「獎助學金」專區會陸續公告</td></tr>
+          <tr><td><b>各科成績優異</b></td><td>校內外獎學金、<br>民間單位獎助學金</td><td>學校網站「獎助學金」專區會陸續公告</td></tr>
         </tbody>
       </table>
     </div>
@@ -941,7 +1073,7 @@
 
     <h3 style="margin-top:34px">給你三個檔位的目標</h3>
     <div class="tbl-wrap" style="margin-top:14px">
-      <table>
+      <table class="t-tier">
         <thead><tr><th>檔位</th><th>會考目標</th><th>會考積分</th><th>意思是</th></tr></thead>
         <tbody>
           <tr><td><b>🟢 保底</b></td><td>5 科都在 <b>B</b> 以上（不要出現 C）</td><td>10 分以上</td><td>只要多元學習表現有認真存，志願序把白商填第一，上榜機會很高。這是<b>底線，不是目標</b>。</td></tr>
@@ -1040,7 +1172,7 @@
 
     <h3 style="margin-top:38px">體能訓練菜單（在家、學校都能做）</h3>
     <div class="tbl-wrap" style="margin-top:14px">
-      <table>
+      <table class="t-fit">
         <thead><tr><th>項目</th><th>怎麼做</th><th>頻率</th><th>為什麼</th></tr></thead>
         <tbody>
           <tr><td><b>跳繩</b></td><td>每次 500～1000 下，可分 5 組</td><td>每天</td><td>練彈跳、腳踝剛性、心肺，CP 值最高</td></tr>
@@ -1123,7 +1255,7 @@
           <div class="tl-col">
             <h4 class="tag t-ball">練球</h4>
             <ul>
-              <li><b>加入學校排球社／體育課主動打排球</b>，社團參與有積分</li>
+              <li><b>加入學校排球社／體育課主動打排球</b>，<span class="nw">社團參與有積分</span></li>
               <li>找 1～2 個同學固定對傳，一週至少 3 次</li>
               <li>加練：高手傳球、下手發球</li>
               <li>目標：對牆墊球 <b>50 下</b>、下手發球 10 顆進 7 顆</li>
@@ -1166,7 +1298,7 @@
             <ul>
               <li>寒假每天 <b>4～5 小時</b>，分早上（數理）／下午（文科）</li>
               <li>完成<b>第一輪總複習</b>，開始寫<b>歷屆會考試題</b>（一次一科，計時）</li>
-              <li>⭐ <b>116 學年度免試入學簡章公告，和導師一起看一次</b></li>
+              <li>⭐ <b>116 學年度免試入學簡章公告，和導師<span class="nw">一起看一次</span></b></li>
               <li>校排／模擬考成績出來後，對照三個檔位，調整策略</li>
             </ul>
           </div>
@@ -1287,7 +1419,7 @@
     <p class="sub">不用完美，能撐一整年的計畫才是好計畫。這份是「國三上學期」版本，寒假和衝刺期再照前面時間軸調整。</p>
 
     <div class="tbl-wrap">
-      <table>
+      <table class="t-week">
         <thead><tr><th>時段</th><th>週一 ~ 週五</th><th>週六</th><th>週日</th></tr></thead>
         <tbody>
           <tr><td><b>放學後<br>16:30–17:30</b></td><td><span class="tag t-ball">練球</span> 對牆墊球／傳球 30 分＋跳繩 500 下</td><td><span class="tag t-ball">練球</span> 和同學打球 90 分鐘</td><td><span class="tag t-life">休息</span> 睡飽、拉筋、陪家人</td></tr>
@@ -1313,20 +1445,178 @@
 <!-- ================= 現在就做 ================= -->
 <section id="todo">
   <div class="wrap rv">
-    <p class="eyebrow">今天、這禮拜</p>
-    <h2>現在馬上可以做的 8 件事</h2>
-    <p class="sub">計畫再好，沒開始都等於零。這 8 件事，一週內做完，你就已經領先大部分同學了。</p>
+    <p class="eyebrow">不用等到某一天</p>
+    <h2>你的行動清單</h2>
+    <p class="sub">
+      這份清單<b>不看日期，只看順序</b>。不管你是什麼時候拿到這張紙的，都從第一格開始，做完一格打一個勾。
+      中間停掉幾天沒關係，回來從還沒打勾的地方接上就好。
+    </p>
+
+    <!-- ---------- 階段一 ---------- -->
+    <div class="stage"><b>階段一　今天</b><span>拿到這張紙的當天，半小時內做得完</span></div>
+    <ul class="check">
+      <li><span class="box"></span><div><b>找一支筆，放在這疊紙旁邊。</b>後面有很多空格要你自己填，那些答案只有打電話、問老師才會知道。</div></li>
+      <li><span class="box"></span><div><b>找一面牆，對牆墊球十下。</b>沒有球就先用手推牆練手型。重點不是幾下，是<b>今天就碰到球</b>這件事。</div></li>
+      <li><span class="box"></span><div><b>量摸高。</b>站著、手伸直、摸牆上最高的一點，用鉛筆畫一條線，旁邊寫上今天的日期。這是你的起點，讓它一直留在那裡。<br>
+        <span class="hint">今天的摸高（公分）：</span><div class="blank short"></div></div></li>
+      <li><span class="box"></span><div><b>把這疊紙貼在書桌前面。</b>不是收進抽屜，是貼在抬頭就看得到的地方。</div></li>
+    </ul>
+
+    <!-- ---------- 階段二 ---------- -->
+    <div class="stage"><b>階段二　這個禮拜</b><span>兩通電話，要找大人一起</span></div>
+    <p class="sub" style="margin-bottom:18px">
+      這兩通電話是整份計畫裡<b>最重要、也最少人真的去做</b>的一步。網路上查不到的答案，五分鐘就問得到。
+      下面把要說的話和要問的問題都寫好了，照著念就行，<b>問到的答案就寫在旁邊的線上</b>。
+    </p>
+
+    <div class="ask">
+      <h4>📞 電話一　問排球隊</h4>
+      <p class="who">上課日打（週一～週五 08:00–16:00），假日沒有人接。可以請大人幫忙撥，接通後你自己講。</p>
+      <div class="tel">(06) 685-2054</div>
+
+      <div class="script">
+        <b>接通後就這樣說（照念）：</b><br>
+        「您好，我是國三學生，明年想報考貴校。<br>
+        想請問學校的<b>排球隊</b>，高一新生要怎麼加入？<br>
+        可以麻煩您幫我轉接<b>體育組</b>嗎？謝謝。」
+      </div>
+
+      <div class="qa">
+        <p class="q"><span>Q1</span>高一新生要怎麼加入排球隊？是選拔，還是報名就可以？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q2</span>球隊平常什麼時候練習？一個禮拜練幾次？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q3</span>完全沒有打過排球的新生，可以加入嗎？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q4</span>要自己準備什麼裝備嗎？（球、護膝、球鞋）</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q5</span>教練怎麼稱呼？之後可以再打這支電話找他嗎？</p>
+        <div class="blank"></div>
+      </div>
+      <p class="hint">打完的日期：____________　接電話的是：____________</p>
+    </div>
+
+    <div class="ask">
+      <h4>⭐ 電話二　問宿舍（同一支電話，轉 323）</h4>
+      <p class="who">
+        教官室生輔組長。<b>這通比上一通更關鍵</b>——以你家到白河的距離，住不住得到宿舍，
+        比會考考幾分還直接決定你能不能真的去讀。
+      </p>
+      <div class="tel">(06) 685-2054　轉 323</div>
+
+      <div class="script">
+        <b>接通後就這樣說（照念）：</b><br>
+        「您好，我是明年要報考貴校的國三學生。<br>
+        想請問<b>高一新生的住宿</b>怎麼申請？<br>
+        我家住在 <b>________</b>，離學校比較遠，所以一定要住校。」
+      </div>
+
+      <div class="qa">
+        <p class="q"><span>Q1</span>高一新生可以申請住宿嗎？大概有多少床位？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q2</span>什麼時候開始申請？要準備什麼文件？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q3</span>住得遠的學生會不會優先？我家的距離算不算遠？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q4</span>一學期住宿費多少？冷氣卡、寢具要自己買嗎？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q5</span>如果沒有申請到，還有別的辦法嗎？</p>
+        <div class="blank"></div>
+      </div>
+      <p class="hint">打完的日期：____________　接電話的是：____________</p>
+    </div>
 
     <ul class="check">
-      <li><span class="ck">1</span><div><b>打一通電話到白商：(06) 685-2054</b>，問「請問學校排球隊高一新生要怎麼加入？有沒有招生或選拔？」——這通電話會給你最準確的答案，比網路上任何資料都可靠。</div></li>
-      <li><span class="ck">2</span><div><b>⭐ 同一通電話一定要轉 323（教官室生輔組長）問宿舍。</b>問三件事：床位還有嗎？什麼時候開始申請？高一新生會不會優先？——以你家到白河的距離，<b>住不住得到宿舍，比會考考幾分還關鍵</b>。</div></li>
-      <li><span class="ck">3</span><div><b>去買一顆 5 號排球和一副護膝。</b>擁有一顆自己的球，這件事會變得真實。</div></li>
-      <li><span class="ck">4</span><div><b>找一面牆，開始對牆墊球。</b>今天先墊 10 下就好。明天 12 下。</div></li>
-      <li><span class="ck">5</span><div><b>量摸高、在牆上畫線、寫上日期。</b>這是你的「Before」，讓它一直掛在那裡提醒你。</div></li>
-      <li><span class="ck">6</span><div><b>做一疊英文單字卡。</b>找厚一點的紙裁成小卡，正面英文、背面中文，一天做 20 張、背 20 張。放口袋，排隊、等車、下課都能翻。</div></li>
-      <li><span class="ck">7</span><div><b>去問導師三件事：</b>我的服務學習時數夠了嗎？體適能什麼時候測？社團有沒有登記到？——這些直接換成免試入學的分數。</div></li>
-      <li><span class="ck">8</span><div><b>請大人把這一頁印出來，貼在你書桌前面。</b>（頁面右下角有列印按鈕，會自動排成適合紙本的版面。）每個禮拜天晚上對一次進度，看看自己有沒有跟上。</div></li>
+      <li><span class="box"></span><div><b>去買一顆 5 號排球和一副護膝。</b>擁有一顆自己的球，這件事才會變成真的。護膝不要省，救球會跪在地上。</div></li>
     </ul>
+
+    <!-- ---------- 階段三 ---------- -->
+    <div class="stage"><b>階段三　回到學校的第一天</b><span>不用打電話，走過去問就好</span></div>
+
+    <div class="ask">
+      <h4>🙋 問導師：這四件事直接換成免試入學的分數</h4>
+      <p class="who">下課去問就好，不用約時間。問完把答案寫下來，這幾個數字決定你的多元學習表現有幾分。</p>
+
+      <div class="qa">
+        <p class="q"><span>Q1</span>我的<b>服務學習時數</b>現在累積幾小時了？還差多少才拿得到滿分？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q2</span><b>體適能檢測</b>什麼時候測？我要先練哪幾項？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q3</span>我的<b>社團參與</b>有沒有登記到？紀錄上寫的是哪一個社？</p>
+        <div class="blank"></div>
+      </div>
+      <div class="qa">
+        <p class="q"><span>Q4</span>用我現在的成績去算<b>免試入學積分</b>，大概是幾分？</p>
+        <div class="blank"></div>
+      </div>
+      <p class="hint">問到的日期：____________</p>
+    </div>
+
+    <ul class="check">
+      <li><span class="box"></span><div><b>去問體育老師：學校有沒有排球社？怎麼加入？</b>沒有社團的話就問「體育課可以固定打排球嗎」。<b>社團參與本身就有積分</b>，等於練球和分數一起拿。</div></li>
+      <li><span class="box"></span><div><b>找 1～2 個同學說好固定對傳。</b>一個人只能對牆，兩個人才練得到傳球和接球。</div></li>
+    </ul>
+
+    <!-- ---------- 階段四 ---------- -->
+    <div class="stage"><b>階段四　從明天起，每天</b><span>這一段沒有終點，做到會考為止</span></div>
+    <p class="sub" style="margin-bottom:18px">
+      下面這張表<b>不用管今天幾月幾號</b>。你開始的那一週就是第 1 週，做到了就在格子裡打一個勾。
+      印完之後可以多印幾張，一張用八週。
+    </p>
+
+    <div class="tbl-wrap">
+      <table class="t-tick">
+        <thead>
+          <tr><th>每天要做的</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>跳繩 500 下</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>對牆墊球 15 分鐘</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>英文單字 20 個</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>數學 10 題</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>晚上讀書 2 小時</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>練完拉筋 10 分鐘</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>週日對一次進度表</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="swipe">← 左右滑動看完整表格 →</p>
+    <p class="hint">上面的數字是「第幾週」，不是日期。哪一週漏掉了就空著，下一週補回來就好。</p>
+
+    <div class="ask" style="margin-top:26px">
+      <h4>✏️ 我自己想到要問的</h4>
+      <p class="who">看完這疊紙，一定還有沒寫到的事。想到就寫在這裡，下次打電話或問老師的時候一起問。</p>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+    </div>
+
+    <div class="fact good">
+      <strong>做完階段一到階段三，你就已經贏過大部分同學了。</strong>
+      不是因為你比較聰明，是因為<b>大部分人只是想一想，沒有真的去打那通電話</b>。
+      這份清單最難的一格，是第一格。
+    </div>
   </div>
 </section>
 
@@ -1342,7 +1632,7 @@
       白商的排球隊，不是只收天才。<br>
       乙級聯賽的球隊，多半是一群「高一才第一次認真打排球」的人，
       靠著每天下午的加練，一年後站上臺南市的球場。<br><br>
-      你比他們早了 <b id="days-inline2">—</b> 天開始。
+      <span class="sc-only">你比他們早了 <b id="days-inline2">—</b> 天開始。</span><span class="pr-only">你比他們早開始。</span>
     </p>
     <p class="quote" style="font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--accent2)">
       別人在看你能不能做到的時候，<br>你已經在做了。
@@ -1370,7 +1660,7 @@
       <li>白河商工「<a href="https://www.phvs.tn.edu.tw/section.asp?cID=42" target="_blank" rel="noopener">住宿與交通方式</a>」— 男女生宿舍、<b>住宿費每學期 1,520 元、冷氣另購冷氣卡</b>、生輔組長分機 323、各路線公車與開車路線</li>
       <li>白河商工「<a href="https://www.phvs.tn.edu.tw/about.asp?cID=13" target="_blank" rel="noopener">交通位置</a>」— 新營／後壁／嘉義轉乘方式與時間</li>
       <li>白河商工「<b>115 學年度白河商工專車路線</b>」公告與附件路線表（教官室，2026/6/10 發布）— <b>嘉義線、中埔線、麻豆線、義竹線、六甲線、青山線</b>共 6 條，各站點、搭車時間與到校距離；<b>最南端為麻豆（34.8 km），無經過臺南市區、安南區、永康、佳里</b></li>
-      <li>中華民國高級中等學校體育總會 CTSSF — 111、112 學年度高中排球聯賽<b>男生組乙級預賽臺南市</b>成績表，參賽名單含<b>白河商工</b></li>
+      <li>中華民國高級中等學校體育總會 CTSSF — 111、112 學年度高中排球聯賽<b>男生組乙級預賽臺南市</b>成績表，參賽名單含<span class="nw"><b>白河商工</b></span></li>
       <li>教育部 115 年 7 月 6 日臺教授國部字第 1155502031 號函 — <b>116 年國中教育會考訂於 116 年 5 月 15、16 日（六、日）辦理</b>；國中教育會考官網 <a href="https://cap.rcpet.edu.tw/" target="_blank" rel="noopener">cap.rcpet.edu.tw</a></li>
       <li>臺南區高級中等學校免試入學超額比序項目積分換算（115 學年度版本）— 總積分 108 分：志願序 12＋多元學習表現 50＋就近入學 10＋會考 36</li>
       <li>教育部國民及學前教育署「高級中等學校免學費方案」— <b>112 學年度第 2 學期起全國公私立高中職全面免學費</b>；雜費與代收代辦費仍應繳交</li>
@@ -1397,7 +1687,8 @@
       <li><b>當年度雜費與代收代辦費的確切金額</b>（各校各年度不同，須看註冊組收費表）</li>
       <li>宿舍<b>目前床位數、是否額滿、高一新生是否優先</b>（這是本頁最需要優先確認的一項）</li>
       <li>116 學年度校車路線是否調整（本頁引用的是 <b>115 學年度</b>暫定版，每年會微調）</li>
-      <li>臺南市區／安南區出發的通勤時間為依距離與現有班次<b>推估</b>，非官方數據</li>
+      <li>安南區（北安路／台江大道一帶）出發的所有時間，是依距離與現有班次<b>推估</b>，非官方數據</li>
+      <li>市區公車到台南火車站的<b>路線號碼與站牌</b>、台鐵區間車班次、<b>黃幹線末班車時間</b>——這三項會直接影響「走法 B」能不能成立，務必自己查一次</li>
     </ul>
   </div>
 </section>
