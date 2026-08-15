@@ -237,10 +237,25 @@
   }
   /* ---------- 列印版：貼在書桌前用 ---------- */
   @media print{
-    @page{margin:14mm 12mm}
+    /* 每一頁都是 A4 直式 */
+    @page{size:A4 portrait;margin:14mm 12mm}
     html,body{background:#fff!important;color:#111!important;font-size:10.5pt;line-height:1.6}
     nav,#top,#printbtn,.hero-art,.count,.cnote,.btns,.swipe,.mapbox,.linkgrid,.pep .btns{display:none!important}
     .rv{opacity:1!important;transform:none!important}
+
+    /* 螢幕用的亮色字印在白紙上會看不見（例如表格裡的粗體），紙本一律轉深色。
+       下面比較specific的規則（.eyebrow / figcaption / footer…）仍可各自覆蓋。 */
+    body,body *{color:#111!important}
+
+    /* 分頁基本原則：一段文字、一個資訊塊不被切成兩頁 */
+    p,li,blockquote,figure,img,svg{break-inside:avoid;page-break-inside:avoid}
+    p,li{orphans:3;widows:3}
+    /* 標題不會單獨留在頁尾 */
+    h1,h2,h3,h4{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
+    .eyebrow,.sub{break-after:avoid;page-break-after:avoid}
+    /* 資料來源那幾個「照片授權：」小標，不能跟後面的清單分家 */
+    #sources p{break-after:avoid;page-break-after:avoid}
+
     section{padding:14pt 0!important;border-top:1px solid #bbb!important;break-inside:auto}
     .wrap{max-width:100%;padding:0}
     .hero{padding:0 0 12pt!important;background:none!important}
@@ -254,10 +269,11 @@
     .lead,.sub,.card p,.tl-col ul,.check li{color:#222!important}
     .tagline{border:1px solid #999!important;background:none!important;color:#111!important}
 
-    .card,.fact,.warn,.art,.tbl-wrap,.tl-body,.ph{
+    .card,.fact,.warn,.art,.tl-body,.ph{
       background:#fff!important;border:1px solid #bbb!important;
-      box-shadow:none!important;break-inside:avoid
+      box-shadow:none!important;break-inside:avoid;page-break-inside:avoid
     }
+    .check li,.quote,.figcap{break-inside:avoid;page-break-inside:avoid}
     .card:hover{transform:none!important}
     .fact strong,.good strong,.tl-when,thead th{color:#111!important}
     .fact{border-left:3px solid #666!important}
@@ -270,14 +286,41 @@
     .tl-item{break-inside:avoid;margin-bottom:10pt}
     .tl-body{grid-template-columns:1fr 1fr!important;padding:8pt 10pt!important}
 
-    .tbl-wrap{overflow:visible!important}
-    table{min-width:0!important;font-size:9pt;width:100%!important}
-    th,td{padding:4pt 6pt!important;border-bottom:1px solid #ddd!important;color:#111!important}
-    thead th{background:#f0f0f0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    /* ---- 表格：先求整張不切；真的一頁放不下才跨頁，且每頁重印表頭、不從列中間切開 ---- */
+    .tbl-wrap{
+      overflow:visible!important;background:none!important;
+      border:0!important;border-radius:0!important;box-shadow:none!important;
+      break-inside:avoid;page-break-inside:avoid
+    }
+    table{
+      min-width:0!important;font-size:9pt;width:100%!important;
+      border:1px solid #999!important;border-collapse:collapse;
+      break-inside:auto;page-break-inside:auto
+    }
+    thead{display:table-header-group}   /* 跨頁時每一頁都重印表頭 */
+    tfoot{display:table-footer-group}
+    tr{break-inside:avoid!important;page-break-inside:avoid!important}
+    th,td{
+      padding:4pt 6pt!important;border-bottom:1px solid #ddd!important;color:#111!important;
+      break-inside:avoid;page-break-inside:avoid
+    }
+    thead th{
+      background:#f0f0f0!important;border-bottom:1px solid #999!important;
+      -webkit-print-color-adjust:exact;print-color-adjust:exact
+    }
+    tbody tr:last-child td{border-bottom:none!important}
     tbody tr:hover{background:none!important}
+    tbody tr[style]{-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .tag{border:1px solid #999!important;background:none!important;color:#111!important;font-size:8pt}
 
     svg{max-height:70mm}
+    /* 圖表裡畫在白底上的淺色文字（雙軌路線圖、積分圖、場上位置說明）也要轉深，
+       地圖／球場那兩張自己有深色底，不動它們的底色文字。 */
+    svg text[fill="#eef2ff"],svg g[fill="#eef2ff"]{fill:#111!important}
+    svg text[fill="#c3d0ea"],svg g[fill="#c3d0ea"]{fill:#333!important}
+    svg text[fill="#9aabcc"],svg g[fill="#9aabcc"]{fill:#555!important}
+    svg text[fill="#93c5fd"]{fill:#1d4ed8!important}
+    svg text[fill="#ffb374"]{fill:#a94f06!important}
     .ph img{max-height:45mm;object-fit:cover}
     .ph figcaption{font-size:7.5pt;color:#555!important}
     .check .ck{background:none!important;border:1px solid #666;color:#111!important}
