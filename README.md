@@ -75,7 +75,7 @@ npx wrangler pages deploy
 
 ## 列印版 PDF
 
-`public/print/baihe-plan-a4.pdf` 是網頁的列印輸出，24 頁 A4 直式。
+`public/print/baihe-plan-a4.pdf` 是網頁的列印輸出，23 頁 A4 直式。
 網站右下角「📄 下載列印版」那顆按鈕就是指向它，所以**這個檔案一定要進 git**
 （`.gitignore` 有寫 `!public/print/*.pdf` 的例外），否則部署後連結會 404。
 
