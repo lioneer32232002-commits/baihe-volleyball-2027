@@ -67,6 +67,18 @@ npx wrangler pages deploy
 > 但這個 Pages 專案只存在於上述個人帳號，若憑證被切換成其他帳號，
 > deploy 會因找不到專案而失敗，不會靜默誤送。
 
+## 列印版 PDF
+
+repo 根目錄的 `白河商工排球作戰計畫_列印版A4.pdf` 就是網頁按「🖨️ 列印」的實際輸出，
+20 頁 A4 直式。**它沒有進 git**（4.4 MB，而且改網頁就會過期），要重新產生就跑：
+
+```bash
+chrome --headless=new --disable-gpu --no-pdf-header-footer --run-all-compositor-stages-before-draw --virtual-time-budget=10000 --print-to-pdf="白河商工排球作戰計畫_列印版A4.pdf" "file:///<repo 絕對路徑>/public/index.html"
+```
+
+改完 `public/index.html` 的排版後，值得重跑一次確認：每頁都該是 595×842pt（A4 直式）、
+表格不能被切成兩頁、句尾不要只剩一兩個字自己一行。
+
 ## 重要提醒
 
 網站內容為 **2026 年 8 月** 依公開資料整理，**不是官方文件**。

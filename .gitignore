@@ -4,3 +4,6 @@ node_modules/
 .env
 *.log
 .DS_Store
+
+# 列印版 PDF：可從 public/index.html 重新產生，不進版控（見 README）
+*.pdf
