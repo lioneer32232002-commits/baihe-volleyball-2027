@@ -413,8 +413,18 @@
     a{color:#111!important;text-decoration:none}
     .src a::after{content:" (" attr(href) ")";font-size:7.5pt;color:#777;word-break:break-all}
 
-    /* 重要段落各自從新的一頁開始，方便單張貼牆 */
-    #plan,#week,#todo{break-before:page}
+    /* 每一大段各自從新的一頁開始：一段就是一張紙，方便單張撕下來貼牆，
+       也不會出現「一段從上一頁的最後三行開始」這種難讀的排法 */
+    section{break-before:page;page-break-before:always}
+    .hero,#truth{break-before:auto;page-break-before:auto}
+    /* 五間學校那段一頁放不下，從「做到六成和九成」切開，兩頁才不會一邊空著 */
+    #opt-split{break-before:page;page-break-before:always}
+    /* 「一週兩趟怎麼走」跟它的表格、要自己查的三件事排成同一頁 */
+    #trip-split{break-before:page;page-break-before:always}
+    /* 行動清單的階段三、階段四各自從新的一頁開始 */
+    #s3,#s4{break-before:page;page-break-before:always}
+    /* 頁尾不要自己掉到下一頁只剩一行 */
+    footer{break-inside:avoid;page-break-inside:avoid;break-before:avoid;page-break-before:avoid}
 
     /* 「最後一件事」獨占一整頁，當成一張可以撕下來貼牆的海報 */
     .pep{
@@ -433,16 +443,16 @@
 
     /* ---------- 省紙：把螢幕用的留白收掉，內容一個字都沒少 ---------- */
     @page{margin:12mm 11mm}
-    html,body{font-size:10pt;line-height:1.5}
-    section{padding:9pt 0!important}
+    html,body{font-size:9.5pt;line-height:1.45}
+    section{padding:7pt 0!important}
     h1{font-size:18pt;margin-bottom:4pt}
     h2{font-size:13pt;margin-bottom:5pt}
     h3{font-size:11pt;margin:0 0 4pt!important}
     .sub,.lead{margin-bottom:8pt!important}
-    .card{padding:9pt 11pt!important}
+    .card{padding:8pt 10pt!important}
     .num{width:20pt;height:20pt;margin-bottom:5pt;border-radius:6pt}
     .card p+p{margin-top:4pt}
-    .fact,.warn{padding:8pt 11pt!important;margin:8pt 0!important}
+    .fact,.warn{padding:7pt 10pt!important;margin:7pt 0!important}
     .art{padding:8pt!important;margin:9pt 0!important}
     .tbl-wrap{margin-top:6pt!important}
     .tl-item{margin-bottom:7pt}
@@ -870,7 +880,7 @@
       住校之後，這 4～5 小時全部變成你的。
     </div>
 
-    <h3 style="margin-top:38px">住校之後，一週兩趟怎麼走</h3>
+    <h3 id="trip-split" style="margin-top:38px">住校之後，一週兩趟怎麼走</h3>
     <p class="sub" style="margin-bottom:14px">
       這才是你真正會走的路：<b>週日下午去學校、週五晚上回家，一週兩趟</b>，不是每天。
       同樣一段路，一週跑兩趟跟一天跑兩趟，是完全不同的兩件事。
@@ -1218,7 +1228,7 @@
       你走的是<b>「一般生考進學校，再進校隊」</b>——上面那五間都是這條路，白商也是。
     </div>
 
-    <div class="fact good">
+    <div class="fact good" id="opt-split">
       <strong>做到六成和做到九成，換到的不是同一張牌。</strong>
       拿前面那三個檔位對一次：
       <div class="qa" style="margin-top:12px">
@@ -1251,15 +1261,11 @@
     </div>
 
     <div class="warn">
-      ⚠️ <b>這張表有三個限制，填志願前一定要自己再確認：</b>
-      <ul style="margin:8px 0 0;padding-left:20px">
-        <li>校隊依據是 CTSSF <b>111、112 學年度</b>成績表，<b>113、114 學年度沒查到</b>，球隊可能停辦或新增。
-          <b>「有登記代表隊」不等於「訓練很扎實」</b>——有沒有專任教練、一週練幾次，只有打電話問得到。</li>
-        <li>普通高中的分數是<b>補習班預估值，不是官方公告</b>；<b>高職的錄取門檻沒有公開彙整</b>，要看當年度簡章或問導師。</li>
-        <li>車程是用距離概估，不是實際測過。</li>
-      </ul>
-      <b>把前面「電話一」的問法照抄，學校名字換掉，五間一間一間打過去。</b>
-      五通電話，換你未來三年，很划算。
+      ⚠️ <b>三個限制，填志願前一定要自己再確認：</b>
+      校隊依據是 CTSSF <b>111、112 學年度</b>成績表，113、114 學年度沒查到，球隊可能停辦或新增，
+      而且<b>「有登記代表隊」不等於「訓練扎實」</b>——有沒有專任教練、一週練幾次，只有打電話問得到。
+      普通高中的分數是<b>補習班預估，不是官方公告</b>；<b>高職門檻沒有公開彙整</b>，要看簡章或問導師。車程是概估。<br>
+      <b>把前面「電話一」的問法照抄、學校名字換掉，五間一間一間打過去</b>——五通電話，換你未來三年。
     </div>
   </div>
 </section>
@@ -1380,7 +1386,7 @@
     <div class="fact good">
       <strong>🖨️ 這份計畫，建議印出來貼在書桌前。</strong>
       不用手機、不用開網頁，抬頭就看得到自己這個月該做什麼。
-      <span class="sc-only"><b>請大人按頁面右下角的「📄 下載列印版」</b>，會拿到一份排好的 <a href="print/baihe-plan-a4.pdf" download="白河商工排球作戰計畫_列印版A4.pdf">A4 直式 PDF（21 頁）</a>，直接印、或拿去影印店印都可以。進度表、一週作息、待辦清單都各自分頁，方便單張撕下來貼牆。<br></span>
+      <span class="sc-only"><b>請大人按頁面右下角的「📄 下載列印版」</b>，會拿到一份排好的 <a href="print/baihe-plan-a4.pdf" download="白河商工排球作戰計畫_列印版A4.pdf">A4 直式 PDF（24 頁）</a>，直接印、或拿去影印店印都可以。進度表、一週作息、待辦清單都各自分頁，方便單張撕下來貼牆。<br></span>
       這一整頁的方法<b>沒有一項需要手機</b>——單字卡用回收紙自己做、練球靠一面牆、進度靠這張紙。
     </div>
 
@@ -1780,7 +1786,7 @@
     </ul>
 
     <!-- ---------- 階段三 ---------- -->
-    <div class="stage"><b>階段三　回到學校的第一天</b><span>不用打電話，走過去問就好</span></div>
+    <div class="stage" id="s3"><b>階段三　回到學校的第一天</b><span>不用打電話，走過去問就好</span></div>
 
     <div class="ask">
       <h4>🙋 問導師：這四件事直接換成免試入學的分數</h4>
@@ -1811,7 +1817,7 @@
     </ul>
 
     <!-- ---------- 階段四 ---------- -->
-    <div class="stage"><b>階段四　從明天起，每天</b><span>這一段沒有終點，做到會考為止</span></div>
+    <div class="stage" id="s4"><b>階段四　從明天起，每天</b><span>這一段沒有終點，做到會考為止</span></div>
     <p class="sub" style="margin-bottom:18px">
       下面這張表<b>不用管今天幾月幾號</b>。你開始的那一週就是第 1 週，做到了就在格子裡打一個勾。
       印完之後可以多印幾張，一張用八週。
@@ -1882,48 +1888,45 @@
     <p class="eyebrow">誠實區</p>
     <h2 style="font-size:1.5rem">資料來源與提醒</h2>
 
-    <div class="warn" style="margin-bottom:22px">
-      <b>這一頁是「作戰參考」，不是官方文件。</b>裡面的入學規則、球隊狀況、住宿費、學費補助都是 2026 年 8 月從公開資料整理的，
-      每年都可能變。<b>最終一律以白河商工官網公告、臺南區免試入學委員會簡章、以及學校電話回覆為準。</b>
+    <div class="warn" style="margin-bottom:18px">
+      <b>這一頁是「作戰參考」，不是官方文件。</b>入學規則、球隊狀況、住宿費、補助都是 2026 年 8 月整理的，每年都會變。
+      <b>一律以白河商工官網公告、臺南區免試入學簡章、以及打電話問到的答案為準。</b>
     </div>
 
     <p><b>查證來源：</b></p>
     <ul>
-      <li>國立白河高級商工職業學校 官方網站 — <a href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">phvs.tn.edu.tw</a>（校名、地址、電話、科別、招生與續招公告）</li>
-      <li>白河商工「<a href="https://www.phvs.tn.edu.tw/section.asp?cID=42" target="_blank" rel="noopener">住宿與交通方式</a>」— 男女生宿舍、<b>住宿費每學期 1,520 元、冷氣另購冷氣卡</b>、生輔組長分機 323、各路線公車與開車路線</li>
-      <li>白河商工「<a href="https://www.phvs.tn.edu.tw/about.asp?cID=13" target="_blank" rel="noopener">交通位置</a>」— 新營／後壁／嘉義轉乘方式與時間</li>
-      <li>白河商工「<b>115 學年度白河商工專車路線</b>」公告與附件路線表（教官室，2026/6/10 發布）— <b>嘉義線、中埔線、麻豆線、義竹線、六甲線、青山線</b>共 6 條，各站點、搭車時間與到校距離；<b>最南端為麻豆（34.8 km），無經過臺南市區、安南區、永康、佳里</b></li>
-      <li>114 學年度臺南區高級中等學校<b>體育班</b>特色招生甄選入學簡章 — 臺南區招收<b>排球</b>體育班的是<b>北門農工、曾文農工</b></li>
-      <li>中華民國高級中等學校體育總會 CTSSF — <b>111 學年度</b>（12 隊）與 <b>112 學年度</b>（15 隊）高中排球聯賽<b>男生組乙級預賽臺南市</b>成績表：112 學年度白河商工<b>第 3 名</b>、新化高工第 4 名；111 學年度臺南高工第 3 名、臺南高商第 4 名。本頁「其他學校」那張表的球隊名單就是從這兩份整理的</li>
-      <li>教育部 115 年 7 月 6 日臺教授國部字第 1155502031 號函 — <b>116 年國中教育會考訂於 116 年 5 月 15、16 日（六、日）辦理</b>；國中教育會考官網 <a href="https://cap.rcpet.edu.tw/" target="_blank" rel="noopener">cap.rcpet.edu.tw</a></li>
-      <li>臺南區高級中等學校免試入學超額比序項目積分換算（115 學年度版本）— 總積分 108 分：志願序 12＋多元學習表現 50＋就近入學 10＋會考 36</li>
-      <li>教育部國民及學前教育署「高級中等學校免學費方案」— <b>112 學年度第 2 學期起全國公私立高中職全面免學費</b>；雜費與代收代辦費仍應繳交</li>
-      <li>《低收入戶學生及中低收入戶學生就讀高級中等以上學校學雜費減免辦法》— <b>低收入戶全免、中低收入戶減免 60%</b></li>
-      <li>中國時報 2016/11/25 報導 — 白河商工、後壁高中、玉井工商試辦<b>完全免試入學</b></li>
-      <li>維基百科「國立白河高級商工職業學校」— 創校沿革與校地面積</li>
+      <li><b>白河商工官網</b> <a href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">phvs.tn.edu.tw</a>
+        — 校名、地址、電話、科別、續招公告；「住宿與交通方式」（住宿費 1,520 元／學期、冷氣卡另購、生輔組長分機 323）；
+        教官室 2026/6/10「115 學年度專車路線」公告（6 條線，最南到麻豆 34.8 km）</li>
+      <li><b>CTSSF 中華民國高級中等學校體育總會</b> — 111（12 隊）、112（15 隊）學年度高中排球聯賽男生組乙級預賽臺南市成績表。
+        112 年白商<b>第 3</b>、新化高工第 4；111 年臺南高工第 3、臺南高商第 4。<b>「五間學校」那張表就是從這兩份整理的</b></li>
+      <li><b>114 學年度臺南區高中體育班特色招生簡章</b> — 招排球體育班的是北門農工、曾文農工</li>
+      <li><b>教育部 115/7/6 臺教授國部字第 1155502031 號函</b> — 116 年會考訂於 5/15、5/16；官網 <a href="https://cap.rcpet.edu.tw/" target="_blank" rel="noopener">cap.rcpet.edu.tw</a></li>
+      <li><b>臺南區免試入學超額比序積分換算（115 學年度版）</b> — 108 分＝志願序 12＋多元學習表現 50＋就近入學 10＋會考 36</li>
+      <li><b>教育部國教署「高級中等學校免學費方案」</b> — 112 學年度第 2 學期起全面免學費，雜費與代收代辦費仍要繳；
+        《低收入戶及中低收入戶學生學雜費減免辦法》— 低收全免、中低收減免 60%</li>
+      <li>中國時報 2016/11/25 — 白商等 3 校試辦完全免試入學；維基百科 — 創校沿革與校地面積</li>
     </ul>
 
-    <p style="margin-top:18px"><b>照片授權：</b></p>
+    <p style="margin-top:14px"><b>照片授權：</b></p>
     <ul>
-      <li>白河區景色 — 攝影 Mk2010，<b>CC BY-SA 3.0</b>，<a href="https://commons.wikimedia.org/wiki/File:Baihe_District,_Tainan_(Taiwan).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li>
-      <li>白河晨景（蓮花田）— 攝影 梁郡芳，<b>CC BY 4.0</b>，<a href="https://commons.wikimedia.org/wiki/File:%E7%99%BD%E6%B2%B3%E6%99%A8%E6%99%AF.tif" target="_blank" rel="noopener">Wikimedia Commons</a></li>
-      <li>其餘插圖（排球、球場、地圖、路線圖）皆為本頁原創繪製的向量圖。</li>
-      <li><b>本頁沒有使用白河商工校園照片。</b>要看真正的校園與球隊照片，請直接看
+      <li>白河區景色（攝影 Mk2010，CC BY-SA 3.0）、白河晨景蓮花田（攝影 梁郡芳，CC BY 4.0），
+        皆取自 <a href="https://commons.wikimedia.org/wiki/File:Baihe_District,_Tainan_(Taiwan).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>；
+        其餘插圖（排球、球場、地圖、路線圖）為本頁原創向量圖</li>
+      <li><b>本頁沒有使用白河商工的校園照片</b>——版權屬於學校。要看真正的校園和球隊照片，請上
         <a href="https://www.phvs.tn.edu.tw/" target="_blank" rel="noopener">學校官網</a>或
-        <a href="https://www.instagram.com/phvs_official/" target="_blank" rel="noopener">學校 IG @phvs_official</a>——那些照片版權屬於學校，這裡不轉載。</li>
+        <a href="https://www.instagram.com/phvs_official/" target="_blank" rel="noopener">IG @phvs_official</a></li>
     </ul>
 
-    <p style="margin-top:18px"><b>沒查到、需要你自己問學校的部分：</b></p>
+    <p style="margin-top:14px"><b>沒查到、要你自己問學校的部分：</b></p>
     <ul>
-      <li>白商排球隊<b>目前的教練、練習時間、是否有選拔門檻</b>（官網未公告）</li>
-      <li>白商<b>114／115 學年度</b>是否持續組隊參賽（官方成績表僅查證到 111、112 學年度）</li>
-      <li>各科<b>實際最低錄取積分</b>（每年放榜後才會知道）</li>
-      <li><b>當年度雜費與代收代辦費的確切金額</b>（各校各年度不同，須看註冊組收費表）</li>
-      <li>宿舍<b>目前床位數、是否額滿、高一新生是否優先</b>（這是本頁最需要優先確認的一項）</li>
-      <li>116 學年度校車路線是否調整（本頁引用的是 <b>115 學年度</b>暫定版，每年會微調）</li>
-      <li>安南區（北安路／台江大道一帶）出發的所有時間，是依距離與現有班次<b>推估</b>，非官方數據</li>
-      <li>市區公車到台南火車站的<b>路線號碼與站牌</b>、台鐵區間車班次、<b>黃幹線末班車時間</b>——這三項會直接影響「走法 B」能不能成立，務必自己查一次</li>
-      <li>「其他學校」那張表：<b>113、114 學年度各校排球隊是否還在</b>、以及<b>高職各科的實際錄取積分</b>——這兩項只有打電話和看當年度簡章才問得到</li>
+      <li><b>⭐ 宿舍床位數、是否額滿、高一新生是否優先</b>——本頁最該優先確認的一項</li>
+      <li>白商排球隊目前的教練、練習時間、有沒有選拔門檻（官網未公告）</li>
+      <li>白商 113～115 學年度是否持續組隊（成績表只查證到 111、112 學年度）</li>
+      <li>各科實際最低錄取積分、當年度雜費與代收代辦費的確切金額（每年不同，要看註冊組收費表）</li>
+      <li>116 學年度校車路線是否調整（本頁引用的是 115 學年度暫定版）</li>
+      <li>安南區出發的所有時間都是<b>推估</b>；市區公車路線與站牌、台鐵區間車班次、<b>黃幹線末班車時間</b>務必自己查一次</li>
+      <li>「五間學校」表：113、114 學年度各校排球隊是否還在、高職各科的實際錄取積分</li>
     </ul>
   </div>
 </section>
