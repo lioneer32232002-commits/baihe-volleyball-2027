@@ -416,6 +416,21 @@
     /* 重要段落各自從新的一頁開始，方便單張貼牆 */
     #plan,#week,#todo{break-before:page}
 
+    /* 「最後一件事」獨占一整頁，當成一張可以撕下來貼牆的海報 */
+    .pep{
+      break-before:page;page-break-before:always;
+      break-after:page;page-break-after:always;
+      break-inside:avoid;page-break-inside:avoid;
+      display:flex;align-items:center;min-height:255mm;
+      border-top:none!important;padding:0!important;text-align:center
+    }
+    .pep .wrap{width:100%}
+    .pep .eyebrow{font-size:9pt;letter-spacing:.3em;margin-bottom:20pt}
+    .pep .quote{font-size:19pt!important;line-height:1.85;margin-bottom:26pt}
+    .pep .quote em{font-style:normal;border-bottom:2px solid #111;padding-bottom:1pt}
+    .pep .sub{font-size:11pt;margin:0 auto 30pt!important;max-width:30em}
+    .pep .quote + .quote,.pep .quote:last-of-type{font-size:16.5pt!important;margin-bottom:0}
+
     /* ---------- 省紙：把螢幕用的留白收掉，內容一個字都沒少 ---------- */
     @page{margin:12mm 11mm}
     html,body{font-size:10pt;line-height:1.5}
@@ -1365,7 +1380,7 @@
     <div class="fact good">
       <strong>🖨️ 這份計畫，建議印出來貼在書桌前。</strong>
       不用手機、不用開網頁，抬頭就看得到自己這個月該做什麼。
-      <span class="sc-only"><b>請大人按頁面右下角的「📄 下載列印版」</b>，會拿到一份排好的 <a href="print/baihe-plan-a4.pdf" download="白河商工排球作戰計畫_列印版A4.pdf">A4 直式 PDF（20 頁）</a>，直接印、或拿去影印店印都可以。進度表、一週作息、待辦清單都各自分頁，方便單張撕下來貼牆。<br></span>
+      <span class="sc-only"><b>請大人按頁面右下角的「📄 下載列印版」</b>，會拿到一份排好的 <a href="print/baihe-plan-a4.pdf" download="白河商工排球作戰計畫_列印版A4.pdf">A4 直式 PDF（21 頁）</a>，直接印、或拿去影印店印都可以。進度表、一週作息、待辦清單都各自分頁，方便單張撕下來貼牆。<br></span>
       這一整頁的方法<b>沒有一項需要手機</b>——單字卡用回收紙自己做、練球靠一面牆、進度靠這張紙。
     </div>
 
