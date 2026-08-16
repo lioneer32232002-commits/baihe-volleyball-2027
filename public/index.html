@@ -414,6 +414,43 @@
 
     /* 重要段落各自從新的一頁開始，方便單張貼牆 */
     #plan,#week,#todo{break-before:page}
+
+    /* ---------- 省紙：把螢幕用的留白收掉，內容一個字都沒少 ---------- */
+    @page{margin:12mm 11mm}
+    html,body{font-size:10pt;line-height:1.5}
+    section{padding:9pt 0!important}
+    h1{font-size:18pt;margin-bottom:4pt}
+    h2{font-size:13pt;margin-bottom:5pt}
+    h3{font-size:11pt;margin:0 0 4pt!important}
+    .sub,.lead{margin-bottom:8pt!important}
+    .card{padding:9pt 11pt!important}
+    .num{width:20pt;height:20pt;margin-bottom:5pt;border-radius:6pt}
+    .card p+p{margin-top:4pt}
+    .fact,.warn{padding:8pt 11pt!important;margin:8pt 0!important}
+    .art{padding:8pt!important;margin:9pt 0!important}
+    .tbl-wrap{margin-top:6pt!important}
+    .tl-item{margin-bottom:7pt}
+    .tl-body{padding:7pt 9pt!important;gap:9pt!important}
+    .tl-col ul{padding-left:14px}
+    .tl-col li{margin-bottom:2pt}
+    .check li{padding:6pt 0}
+    .ask{padding:9pt 11pt!important;margin:9pt 0!important}
+    .qa{margin-bottom:6pt}
+    .qa .q{margin-bottom:4pt}
+    .script{margin:6pt 0 8pt}
+    .stage{margin:11pt 0 3pt;padding-top:6pt}
+    figure,.photos{margin:0}
+
+    /* 風景照是給螢幕看的，紙本省下來給內容 */
+    .photos{display:none!important}
+
+    /* 資料來源是給大人查證用的，縮小排在最後就好 */
+    #sources{font-size:8pt;line-height:1.45}
+    #sources h2{font-size:11pt}
+    #sources .warn{padding:6pt 9pt!important}
+    #sources ul{margin:4pt 0;padding-left:15px}
+    #sources li{margin-bottom:2pt}
+    #sources .src a::after{font-size:6.5pt}
   }
 
   @keyframes spin{to{transform:rotate(360deg)}}
@@ -1020,7 +1057,7 @@
           </g>
           <g>
             <circle cx="130" cy="235" r="13" fill="#ff7a1a"/><text x="130" y="282" font-size="15" fill="#eef2ff">體能地基</text><text x="130" y="302">跳繩／深蹲／核心</text>
-            <circle cx="330" cy="235" r="13" fill="#ff7a1a"/><text x="330" y="282" font-size="15" fill="#eef2ff">五大基本功</text><text x="330" y="302">墊球／傳球／發球</text>
+            <circle cx="330" cy="235" r="13" fill="#ff7a1a"/><text x="330" y="282" font-size="15" fill="#eef2ff">五大基本功</text><text x="330" y="302">低手／高手／發球</text>
             <circle cx="540" cy="235" r="13" fill="#ff7a1a"/><text x="540" y="282" font-size="15" fill="#eef2ff">實戰經驗</text><text x="540" y="302">校隊練習／打散場</text>
             <circle cx="760" cy="235" r="13" fill="#ff7a1a"/><text x="760" y="282" font-size="15" fill="#eef2ff">高一入隊 🏐</text><text x="760" y="302">2027 年 8 月</text>
           </g>
@@ -1103,26 +1140,26 @@
     <div class="grid g3" style="margin-top:16px">
       <div class="card">
         <div class="num">🏐</div>
-        <h3>1. 低手墊球</h3>
-        <p>最重要、也最好練。兩隻手臂夾緊、膝蓋彎、用<b>身體推</b>不是用手臂甩。<br><b>練法：</b>對牆連續墊，或自己往上墊不落地。</p>
+        <h3>1. 低手托球</h3>
+        <p>最重要、也最好練。兩隻手臂夾緊、膝蓋彎、用<b>身體推</b>不是用手臂甩。<br><b>練法：</b>對牆連續托，或自己往上托不落地。</p>
         <p><b>檢核：</b>對牆連續 <b>50 下</b>不掉。</p>
       </div>
       <div class="card">
         <div class="num">👐</div>
-        <h3>2. 高手傳球</h3>
-        <p>額頭前上方、十指張開成三角形，用<b>全身伸展</b>把球送出去，不是用手指戳。<br><b>練法：</b>自傳、對牆傳、兩人對傳。</p>
-        <p><b>檢核：</b>原地自傳 <b>30 下</b>不移位。</p>
+        <h3>2. 高手托球</h3>
+        <p>額頭前上方、十指張開成三角形，用<b>全身伸展</b>把球送出去，不是用手指戳。<br><b>練法：</b>自托、對牆托、兩人對托。</p>
+        <p><b>檢核：</b>原地自托 <b>30 下</b>不移位。</p>
       </div>
       <div class="card">
         <div class="num">🎯</div>
         <h3>3. 發球</h3>
-        <p>先練<b>下手發球</b>（穩定進場），再進階<b>上手發球</b>。發球是比賽裡唯一「完全由你控制」的一球。</p>
-        <p><b>檢核：</b>10 顆下手發 <b>8 顆</b>進場；上手發 <b>5 顆</b>進場。</p>
+        <p>先練<b>低手發球</b>（穩定進場），再進階<b>高手發球</b>。發球是比賽裡唯一「完全由你控制」的一球。</p>
+        <p><b>檢核：</b>10 顆低手發 <b>8 顆</b>進場；高手發 <b>5 顆</b>進場。</p>
       </div>
       <div class="card">
         <div class="num">💥</div>
         <h3>4. 攻擊步伐</h3>
-        <p>先不急著扣球，先把<b>助跑節奏（左—右左 / 三步）＋雙手擺臂＋起跳</b>做到自動化。動作對了，力量自然來。</p>
+        <p>先不急著殺球，先把<b>助跑節奏（左—右左 / 三步）＋雙手擺臂＋起跳</b>做到自動化。動作對了，力量自然來。</p>
         <p><b>檢核：</b>助跑起跳連續 <b>20 次</b>節奏不亂。</p>
       </div>
       <div class="card">
@@ -1209,7 +1246,7 @@
       <strong>🖨️ 這份計畫，建議印出來貼在書桌前。</strong>
       不用手機、不用開網頁，抬頭就看得到自己這個月該做什麼。
       <b>請大人按頁面右下角的「列印」按鈕</b>，會自動排成適合紙本的版面（進度表、一週作息、待辦清單會各自分頁，方便單張貼牆）。<br>
-      這一整頁的方法<b>沒有一項需要你自己有手機</b>——單字用紙卡、練球靠一面牆、進度靠一張紙。
+      這一整頁的方法<b>沒有一項需要手機</b>——單字卡用回收紙自己做、練球靠一面牆、進度靠這張紙。
     </div>
 
     <div class="tl">
@@ -1221,19 +1258,19 @@
             <h4 class="tag t-book">讀書</h4>
             <ul>
               <li>把國二的<b>數學</b>拿出來，只挑「課本例題＋基本習題」重寫一遍</li>
-              <li>每天背 <b>20 個英文單字</b>：<b>自己做單字卡</b>（正面英文、背面中文），一疊放口袋隨身帶</li>
-              <li>買一本會考<b>總複習講義</b>（國英數社自各一）</li>
+              <li>每天背 <b>20 個英文單字</b>：單字卡<b>用家裡現成的紙自己做</b>（做法看最後的行動清單），一疊放口袋隨身帶</li>
+              <li><b>總複習講義</b>先用學校發的，或跟學長姐要用過的；真的缺哪一科再跟大人講</li>
               <li>固定讀書時間：晚上 <b>7:30–9:30</b>，寫在牆上</li>
             </ul>
           </div>
           <div class="tl-col">
             <h4 class="tag t-ball">練球</h4>
             <ul>
-              <li>買一顆自己的排球（5 號球）＋護膝</li>
-              <li><b>每天跳繩 500 下</b>、對牆墊球 15 分鐘</li>
-              <li>目標：對牆連續墊球 <b>20 下</b></li>
-              <li><b>借爸媽的手機看一次</b>「排球墊球教學」影片，把手型看懂就好——看一次夠了，剩下都是練</li>
-              <li><b>量摸高</b>：在牆上做記號、寫上日期，請大人幫你拍一張存著</li>
+              <li>想辦法弄到一顆 <b>5 號球</b>：先跟體育器材室或同學借，沒球就先對牆練手型</li>
+              <li><b>每天跳繩 500 下</b>、對牆托球 15 分鐘</li>
+              <li>目標：對牆連續托球 <b>20 下</b></li>
+              <li><b>找一個會打的人示範一次手型給你看</b>：體育老師、學長、或班上有在打的同學。看一次就夠，剩下都是自己練</li>
+              <li><b>量摸高</b>：在牆上做記號、寫上日期，請大人幫你<span class="nw">拍一張存著</span></li>
             </ul>
           </div>
         </div>
@@ -1256,9 +1293,9 @@
             <h4 class="tag t-ball">練球</h4>
             <ul>
               <li><b>加入學校排球社／體育課主動打排球</b>，<span class="nw">社團參與有積分</span></li>
-              <li>找 1～2 個同學固定對傳，一週至少 3 次</li>
-              <li>加練：高手傳球、下手發球</li>
-              <li>目標：對牆墊球 <b>50 下</b>、下手發球 10 顆進 7 顆</li>
+              <li>找 1～2 個同學固定對托，一週至少 3 次</li>
+              <li>加練：高手托球、低手發球</li>
+              <li>目標：對牆托球 <b>50 下</b>、低手發球 10 顆進 7 顆</li>
             </ul>
           </div>
         </div>
@@ -1273,7 +1310,7 @@
             <ul>
               <li>國文開始<b>每週寫 1 篇短作文</b>，請老師改（寫作測驗也算分）</li>
               <li>自然：把「理化公式表」自己抄一份，貼在書桌前</li>
-              <li>社會：地理＋歷史用「畫時間軸／地圖」的方式記，不要死背</li>
+              <li>社會：地理＋歷史用「畫時間軸／地圖」的方式記，<span class="nw">不要死背</span></li>
               <li>寒假前把<b>第一輪複習</b>推到約一半</li>
             </ul>
           </div>
@@ -1283,7 +1320,7 @@
               <li>⭐ <b>去參加學校的體適能檢測，全力衝，這是 10 分</b></li>
               <li>⭐ 把<b>服務學習時數</b>補齊（15 分項目，很多人漏掉）</li>
               <li>加入攻擊助跑步伐練習，先不打球，只練腳步</li>
-              <li>目標：自傳 30 下、上手發球開始能過網</li>
+              <li>目標：自托 30 下、高手發球開始能過網</li>
             </ul>
           </div>
         </div>
@@ -1330,7 +1367,7 @@
           <div class="tl-col">
             <h4 class="tag t-ball">練球</h4>
             <ul>
-              <li>練球<b>降到每週 3 次、每次 30 分鐘</b>——當作放鬆，不是負擔</li>
+              <li>練球<b>降到每週 3 次、每次 30 分鐘</b>——當作放鬆，<span class="nw">不是負擔</span></li>
               <li>保留跳繩＋核心，<b>絕對不要做危險動作、不要受傷</b></li>
               <li>⭐ <b>4 月：再量一次摸高，跟 8 月的照片比</b></li>
               <li>想像考完後第一件事就是去打球——那是你的動力</li>
@@ -1422,11 +1459,11 @@
       <table class="t-week">
         <thead><tr><th>時段</th><th>週一 ~ 週五</th><th>週六</th><th>週日</th></tr></thead>
         <tbody>
-          <tr><td><b>放學後<br>16:30–17:30</b></td><td><span class="tag t-ball">練球</span> 對牆墊球／傳球 30 分＋跳繩 500 下</td><td><span class="tag t-ball">練球</span> 和同學打球 90 分鐘</td><td><span class="tag t-life">休息</span> 睡飽、拉筋、陪家人</td></tr>
+          <tr><td><b>放學後<br>16:30–17:30</b></td><td><span class="tag t-ball">練球</span> 對牆低手／高手托球 30 分＋跳繩 500 下</td><td><span class="tag t-ball">練球</span> 和同學打球 90 分鐘</td><td><span class="tag t-life">休息</span> 睡飽、拉筋、陪家人</td></tr>
           <tr><td><b>晚餐 + 休息</b></td><td>18:00–19:30（真的放鬆，不要一直想著書）</td><td>自由</td><td>自由</td></tr>
           <tr><td><b>晚上第一段<br>19:30–20:30</b></td><td><span class="tag t-book">讀書</span> 數學／理化（頭腦最清楚的時候給最難的）</td><td><span class="tag t-book">讀書</span> 本週錯題本總整理</td><td><span class="tag t-book">讀書</span> 一整套模擬題（計時）</td></tr>
           <tr><td><b>晚上第二段<br>20:45–21:45</b></td><td><span class="tag t-book">讀書</span> 國文／英文／社會（輪流）</td><td><span class="tag t-book">讀書</span> 英文單字＋作文一篇</td><td><span class="tag t-book">讀書</span> 檢討＋排下週計畫</td></tr>
-          <tr><td><b>睡前<br>22:00–22:30</b></td><td>拿出單字卡複習今天背的（5 分鐘）→ 睡</td><td>借大人手機看一場排球比賽（一週一次就好）</td><td>早睡</td></tr>
+          <tr><td><b>睡前<br>22:00–22:30</b></td><td>拿出單字卡複習今天背的（5 分鐘）→ 睡</td><td>翻一次這禮拜的錯題本，然後早睡</td><td>早睡</td></tr>
           <tr><td><b>合計</b></td><td>讀書 2 小時 ‧ 練球 1 小時</td><td>讀書 2 小時 ‧ 練球 1.5 小時</td><td>讀書 2 小時 ‧ 完全休息</td></tr>
         </tbody>
       </table>
@@ -1456,10 +1493,11 @@
     <div class="stage"><b>階段一　今天</b><span>拿到這張紙的當天，半小時內做得完</span></div>
     <ul class="check">
       <li><span class="box"></span><div><b>找一支筆，放在這疊紙旁邊。</b>後面有很多空格要你自己填，那些答案只有打電話、問老師才會知道。</div></li>
-      <li><span class="box"></span><div><b>找一面牆，對牆墊球十下。</b>沒有球就先用手推牆練手型。重點不是幾下，是<b>今天就碰到球</b>這件事。</div></li>
+      <li><span class="box"></span><div><b>找一面牆，對牆托球十下。</b>沒有球就先用手推牆練手型。重點不是幾下，是<b>今天就碰到球</b>這件事。</div></li>
       <li><span class="box"></span><div><b>量摸高。</b>站著、手伸直、摸牆上最高的一點，用鉛筆畫一條線，旁邊寫上今天的日期。這是你的起點，讓它一直留在那裡。<br>
         <span class="hint">今天的摸高（公分）：</span><div class="blank short"></div></div></li>
       <li><span class="box"></span><div><b>把這疊紙貼在書桌前面。</b>不是收進抽屜，是貼在抬頭就看得到的地方。</div></li>
+      <li><span class="box"></span><div><b>做你的第一疊英文單字卡——不用買任何東西。</b><br><b>拿什麼做：</b>寫完的舊作業本、考過的考卷背面、廣告傳單、過期日曆紙、餅乾盒或鞋盒拆開的紙板（這種最耐用，口袋裡放一個月都不會爛）。<br><b>怎麼做：</b>裁成比手掌小一點（大概名片大小）。正面寫英文、背面寫中文。角落打一個洞用繩子或迴紋針串起來，或直接用橡皮筋綁成一疊。<br><b>怎麼用：</b>放口袋，排隊、等車、下課、上廁所都能翻。背熟的抽出來放另一疊，每個禮拜再把那疊拿出來複習一次。<br><span class="hint">今天先做 20 張就好。做卡片本身就是在背了。</span></div></li>
     </ul>
 
     <!-- ---------- 階段二 ---------- -->
@@ -1543,7 +1581,8 @@
     </div>
 
     <ul class="check">
-      <li><span class="box"></span><div><b>去買一顆 5 號排球和一副護膝。</b>擁有一顆自己的球，這件事才會變成真的。護膝不要省，救球會跪在地上。</div></li>
+      <li><span class="box"></span><div><b>弄到一顆 5 號球——先借，不用先買。</b>去體育器材室跟老師借、跟班上有在打的同學借，或問學長姐有沒有不打了的舊球。<b>沒有球不是不能開始的理由</b>：沒球就對著牆練手型和腳步，一樣是練。等你真的連續練了一個月，再跟大人開口買一顆自己的——到那時候你講得出理由，他們也看得到你是認真的。</div></li>
+      <li><span class="box"></span><div><b>護膝問問看有沒有現成的。</b>先問學長姐、社團、體育老師有沒有不用的。真的要買再買最便宜的就好，但<b>這一項不要省到完全不戴</b>——救球是整個膝蓋跪到地上。</div></li>
     </ul>
 
     <!-- ---------- 階段三 ---------- -->
@@ -1574,7 +1613,7 @@
 
     <ul class="check">
       <li><span class="box"></span><div><b>去問體育老師：學校有沒有排球社？怎麼加入？</b>沒有社團的話就問「體育課可以固定打排球嗎」。<b>社團參與本身就有積分</b>，等於練球和分數一起拿。</div></li>
-      <li><span class="box"></span><div><b>找 1～2 個同學說好固定對傳。</b>一個人只能對牆，兩個人才練得到傳球和接球。</div></li>
+      <li><span class="box"></span><div><b>找 1～2 個同學說好固定對托。</b>一個人只能對牆，兩個人才練得到高手托球和接球。</div></li>
     </ul>
 
     <!-- ---------- 階段四 ---------- -->
@@ -1591,7 +1630,7 @@
         </thead>
         <tbody>
           <tr><td>跳繩 500 下</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>對牆墊球 15 分鐘</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>對牆托球 15 分鐘</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
           <tr><td>英文單字 20 個</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
           <tr><td>數學 10 題</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
           <tr><td>晚上讀書 2 小時</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
