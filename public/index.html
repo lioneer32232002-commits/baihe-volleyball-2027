@@ -232,16 +232,15 @@
   }
   #top.show{opacity:1;pointer-events:auto}
 
-  /* ---------- print button ---------- */
-  #printbtn{
+  /* ---------- 下載列印版 PDF ---------- */
+  #pdfbtn{
     position:fixed;right:16px;bottom:70px;z-index:60;
     height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--line);
     background:rgba(21,29,51,.94);color:var(--accent2);font-size:14px;font-weight:900;
-    display:flex;align-items:center;gap:7px;cursor:pointer;
+    display:flex;align-items:center;gap:7px;cursor:pointer;text-decoration:none;
     backdrop-filter:blur(8px);
-    font-family:inherit;
   }
-  #printbtn:hover{border-color:var(--accent2)}
+  #pdfbtn:hover{border-color:var(--accent2)}
 
   /* ---------- reveal ---------- */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
@@ -284,6 +283,7 @@
     .mapbox iframe{height:280px}
     .mapbox .mapfoot{padding:11px 14px;font-size:.8rem;gap:10px}
     #top{right:12px;bottom:12px}
+    #pdfbtn{right:12px;bottom:66px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -295,7 +295,7 @@
     /* 每一頁都是 A4 直式 */
     @page{size:A4 portrait;margin:14mm 12mm}
     html,body{background:#fff!important;color:#111!important;font-size:10.5pt;line-height:1.6}
-    nav,#top,#printbtn,.hero-art,.count,.cnote,.btns,.swipe,.mapbox,.linkgrid,.pep .btns{display:none!important}
+    nav,#top,#pdfbtn,.hero-art,.count,.cnote,.btns,.swipe,.mapbox,.linkgrid,.pep .btns{display:none!important}
     .rv{opacity:1!important;transform:none!important}
 
     /* 螢幕用的亮色字印在白紙上會看不見（例如表格裡的粗體），紙本一律轉深色。
@@ -1365,7 +1365,7 @@
     <div class="fact good">
       <strong>🖨️ 這份計畫，建議印出來貼在書桌前。</strong>
       不用手機、不用開網頁，抬頭就看得到自己這個月該做什麼。
-      <b>請大人按頁面右下角的「列印」按鈕</b>，會自動排成適合紙本的版面（進度表、一週作息、待辦清單會各自分頁，方便單張貼牆）。<br>
+      <span class="sc-only"><b>請大人按頁面右下角的「📄 下載列印版」</b>，會拿到一份排好的 <a href="print/baihe-plan-a4.pdf" download="白河商工排球作戰計畫_列印版A4.pdf">A4 直式 PDF（20 頁）</a>，直接印、或拿去影印店印都可以。進度表、一週作息、待辦清單都各自分頁，方便單張撕下來貼牆。<br></span>
       這一整頁的方法<b>沒有一項需要手機</b>——單字卡用回收紙自己做、練球靠一面牆、進度靠這張紙。
     </div>
 
@@ -1677,7 +1677,7 @@
       <li><span class="box"></span><div><b>找一面牆，對牆托球十下。</b>球就在旁邊，現在就可以開始。重點不是幾下，是<b>今天就碰到球</b>這件事。</div></li>
       <li><span class="box"></span><div><b>量摸高。</b>站著、手伸直、摸牆上最高的一點，用鉛筆畫一條線，旁邊寫上今天的日期。這是你的起點，讓它一直留在那裡。<br>
         <span class="hint">今天的摸高（公分）：</span><div class="blank short"></div></div></li>
-      <li><span class="box"></span><div><b>把這疊紙貼在書桌前面。</b>不是收進抽屜，是貼在抬頭就看得到的地方。</div></li>
+      <li><span class="box"></span><div><b>把這疊紙貼在書桌前面。</b>不是收進抽屜，是貼在抬頭就看得到的地方。<span class="sc-only">（還沒印的話，請大人按右下角的<b>「📄 下載列印版」</b>。）</span></div></li>
       <li><span class="box"></span><div><b>做你的第一疊英文單字卡——不用買任何東西。</b><br><b>拿什麼做：</b>寫完的舊作業本、考過的考卷背面、廣告傳單、過期日曆紙、餅乾盒或鞋盒拆開的紙板（這種最耐用，口袋裡放一個月都不會爛）。<br><b>怎麼做：</b>裁成比手掌小一點（大概名片大小）。正面寫英文、背面寫中文。角落打一個洞用繩子或迴紋針串起來，或直接用橡皮筋綁成一疊。<br><b>怎麼用：</b>放口袋，排隊、等車、下課、上廁所都能翻。背熟的抽出來放另一疊，每個禮拜再把那疊拿出來複習一次。<br><span class="hint">今天先做 20 張就好。做卡片本身就是在背了。</span></div></li>
     </ul>
 
@@ -1920,7 +1920,7 @@
   </div>
 </footer>
 
-<button id="printbtn" aria-label="列印這一頁">🖨️ 列印</button>
+<a id="pdfbtn" href="print/baihe-plan-a4.pdf" download="白河商工排球作戰計畫_列印版A4.pdf">📄 下載列印版</a>
 <button id="top" aria-label="回到頂端">↑</button>
 
 <script>
@@ -1957,10 +1957,9 @@
     document.querySelectorAll('.rv').forEach(function(n){n.classList.add('in')});
   }
 
-  // ---- 回到頂端 / 列印 ----
+  // ---- 回到頂端 ----
   var topBtn = document.getElementById('top');
   topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-  document.getElementById('printbtn').addEventListener('click', function(){ window.print(); });
   var ticking = false;
   window.addEventListener('scroll', function(){
     if(ticking) return;

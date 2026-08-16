@@ -69,15 +69,18 @@ npx wrangler pages deploy
 
 ## 列印版 PDF
 
-repo 根目錄的 `白河商工排球作戰計畫_列印版A4.pdf` 就是網頁按「🖨️ 列印」的實際輸出，
-20 頁 A4 直式。**它沒有進 git**（4.4 MB，而且改網頁就會過期），要重新產生就跑：
+`public/print/baihe-plan-a4.pdf` 是網頁的列印輸出，20 頁 A4 直式。
+網站右下角「📄 下載列印版」那顆按鈕就是指向它，所以**這個檔案一定要進 git**
+（`.gitignore` 有寫 `!public/print/*.pdf` 的例外），否則部署後連結會 404。
+
+> 這也表示：**改完 `public/index.html` 就要重新產生 PDF**，不然使用者下載到的是舊版。
 
 ```bash
-chrome --headless=new --disable-gpu --no-pdf-header-footer --run-all-compositor-stages-before-draw --virtual-time-budget=10000 --print-to-pdf="白河商工排球作戰計畫_列印版A4.pdf" "file:///<repo 絕對路徑>/public/index.html"
+chrome --headless=new --disable-gpu --no-pdf-header-footer --run-all-compositor-stages-before-draw --virtual-time-budget=10000 --print-to-pdf="<repo>/public/print/baihe-plan-a4.pdf" "file:///<repo 絕對路徑>/public/index.html"
 ```
 
-改完 `public/index.html` 的排版後，值得重跑一次確認：每頁都該是 595×842pt（A4 直式）、
-表格不能被切成兩頁、句尾不要只剩一兩個字自己一行。
+產生後檢查三件事：每頁都是 595×842pt（A4 直式）、表格沒有被切成兩頁、
+句尾沒有只剩一兩個字自己一行。
 
 ## 重要提醒
 

@@ -5,5 +5,7 @@ node_modules/
 *.log
 .DS_Store
 
-# 列印版 PDF：可從 public/index.html 重新產生，不進版控（見 README）
+# 列印版 PDF：暫存的一律不進版控
 *.pdf
+# 例外：網站上「下載列印版」按鈕指向這一份，必須進版控，否則部署後連結會 404
+!public/print/*.pdf
